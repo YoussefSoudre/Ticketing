@@ -1,0 +1,19 @@
+mat-drawer{
+    width: 200px;
+    background-color: azure;
+}
+:host{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+mat-drawer-container{
+    height: 100vh;
+}
+.contentElement{
+    height: 100vh;
+}
+.footerElement{
+    background-color: green;
+    height: 30px;
+}
