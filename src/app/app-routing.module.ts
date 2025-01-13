@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LayoutComponent } from './features/layout/layout.component';
 import { LoginComponent } from './features/authentification/login/login.component';
 import { SignupComponent } from './features/authentification/signup/signup.component';
-import { TicketComponent } from './features/ticket/ticket.component';
+import { TicketComponent } from './features/Tickets/ticket/ticket.component';
 import { HomeComponent } from './features/home/home.component';
 
 
@@ -17,7 +17,7 @@ const routes: Routes = [
     {
       
       path: "", children: [
-        { path: "", loadChildren: () => import('./features/ticket/ticket.module').then(m => m.TicketModule) },
+        { path: "", loadChildren: () => import('./features/Tickets/ticket/ticket.module').then(m => m.TicketModule) },
         { path: "auth", loadChildren: () => import('./features/authentification/authentification.module').then(m => m.AuthentificationModule) },
         { path: "", loadChildren: () => import('./features/home/home.module').then(m => m.HomeModule) },
         { path: "employer", loadChildren: () => import('./features/employer/employer.module').then(m => m.EmployerModule) },

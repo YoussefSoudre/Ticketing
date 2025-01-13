@@ -8,6 +8,7 @@ import { SharedModule } from './shared/shared.module';
 import { LayoutModule } from './features/layout/layout.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HeaderComponent } from './features/layout/header/header.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     LayoutModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
+    
     
   ],
   providers: [],
