@@ -1,11 +1,13 @@
 <app-header></app-header>
-<app-navbar></app-navbar>
+
 <div>
     <mat-drawer-container>
         <mat-drawer mode="side" opened="True">
             <app-sidenav></app-sidenav>
+           
         </mat-drawer>
         <mat-drawer-content>
+            <app-navbar></app-navbar>
             <div class="content contentElement">
                 <router-outlet> </router-outlet>
             </div>

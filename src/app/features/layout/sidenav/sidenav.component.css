@@ -1,8 +1,16 @@
 .sidenavContainer {
-    position: fixed;
-    margin-top: 10px;
-    
-  }
+    width: 250px; /* Largeur de la sidebar */
+    background-color: #f8f9fa; /* Couleur de fond de la sidebar */
+    padding: 10px;
+    display: flex;
+  /* Suppression des bordures */
+}
+.mat-expansion-panel {
+    border: none; /* Supprime les bordures des panels */
+    box-shadow: none;
+    margin-bottom: 10px;
+    width: 500px;
+}
   .mat-icon {
     vertical-align: middle;
     margin-right: 1rem;
@@ -52,3 +60,11 @@
     margin: 0;
     flex: 1;
   }
+  .ticket-icon {
+  color: #ff5722; /* Couleur orange */
+  font-size: 36px; /* Taille personnalisée */
+}
+div{
+  border: none;
+  border-radius: none;
+}

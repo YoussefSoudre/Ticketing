@@ -1,6 +1,6 @@
 .navbar {
     background-color: #fff; /* Couleur de fond */
-    padding:5px;
+    padding:10px;
     display: flex;
     align-items: center;
 }
@@ -24,6 +24,6 @@
 .navbar-container > button:first-child {
     position: left;
  /* Ajuste cette valeur selon le décalage souhaité */
-    left: 50px; /* Ajuste pour le positionnement horizontal */
+   left: 10px; /* Ajuste pour le positionnement horizontal */
  
 }
