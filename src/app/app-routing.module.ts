@@ -16,14 +16,12 @@ const routes: Routes = [
     {
       
       path: "", children: [
-        { path: "", loadChildren: () => import('./features/Tickets/tickets.module').then(m => m.TicketModule) },
+        { path: "liste", loadChildren: () => import('./features/Tickets/tickets.module').then(m=> m.TicketModule)},
         { path: "auth", loadChildren: () => import('./features/authentification/authentification.module').then(m => m.AuthentificationModule) },
-        { path: "", loadChildren: () => import('./features/home/home.module').then(m => m.HomeModule) },
+        { path: "home", loadChildren: () => import('./features/home/home.module').then(m => m.HomeModule) },
         { path: "employer", loadChildren: () => import('./features/employer/employer.module').then(m => m.EmployerModule) },
         { path: "client", loadChildren: () => import('./features/client/client.module').then(m => m.ClientModule) },
 
-        
-      
       ]
     }
   ]

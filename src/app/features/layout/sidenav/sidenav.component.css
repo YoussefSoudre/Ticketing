@@ -8,16 +8,16 @@
   
 }
 .sidnav{
-  width: 500px;
+  width: 250PX;
   padding: 10px;
   margin: 20px auto;
 }
 .mat-expansion-panel {
-    font-size: 1.2rem;
+    font-size: 1em;
     border: none; /* Supprime les bordures des panels */
     box-shadow: none;
     margin-bottom: 10px;
-    width: 190px;
+    width: 249px;
 }
   .mat-icon {
     vertical-align: middle;

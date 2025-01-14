@@ -9,6 +9,7 @@ import { LayoutModule } from './features/layout/layout.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './features/layout/header/header.component';
+import { TicketModule } from './features/Tickets/tickets.module';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { HeaderComponent } from './features/layout/header/header.component';
     CoreModule,
     SharedModule,
     LayoutModule,
+    TicketModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
     

@@ -7,6 +7,7 @@ import { AjouterComponent } from './ajouter/ajouter.component';
 import { ModifierComponent } from './modifier/modifier.component';
 import { TicketComponent } from './ticket/ticket.component';
 import { MatTabsModule } from '@angular/material/tabs';
+import { LayoutModule } from '../layout/layout.module';
 
 
 
@@ -27,6 +28,7 @@ import { MatTabsModule } from '@angular/material/tabs';
     MatFormFieldModule,
     MatInputModule,
     MatTabsModule,
+    
     
    
    

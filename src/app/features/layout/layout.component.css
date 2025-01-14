@@ -1,25 +1,36 @@
 app-header {
-    z-index: 999;
+    top: 0;
+    z-index: 10;
     position: fixed;
     width: 100%;
 }
+app-footer {
+    bottom: 0;
+    z-index: 10;
+    position: absolute;
+    width: 100%;
+}
 .container{
-    height: 50vh;
+    height: 300px;
+    margin-top: 60px;
+    margin-bottom: 50px;
 }
 mat-drawer{
-    width: 200px;
-    background-color: azure;
+    width: 250px;
+    height: auto;
+    position: absolute;
+    /* background-color: azure; */
 }
-/* :host{
-    height: 100vh;
+:host{
+    height: 90vh;
     display: flex;
     flex-direction: column;
-} */
+}
 mat-drawer-container{
-    height: 100vh;
+    height: 90vh;
 }
 .contentElement{
-    height: 100vh;
+    height: 80%;
 }
 .footerElement{
     background-color: green;
