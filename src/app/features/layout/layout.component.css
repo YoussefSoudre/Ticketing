@@ -1,12 +1,20 @@
+app-header {
+    z-index: 999;
+    position: fixed;
+    width: 100%;
+}
+.container{
+    height: 50vh;
+}
 mat-drawer{
     width: 200px;
     background-color: azure;
 }
-:host{
+/* :host{
     height: 100vh;
     display: flex;
     flex-direction: column;
-}
+} */
 mat-drawer-container{
     height: 100vh;
 }

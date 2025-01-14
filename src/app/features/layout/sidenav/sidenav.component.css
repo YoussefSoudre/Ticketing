@@ -1,4 +1,5 @@
 .sidenavContainer {
+    font-size: 1.2rem;
     width: 250px; /* Largeur de la sidebar */
     background-color: #f8f9fa; /* Couleur de fond de la sidebar */
     padding: 10px;
@@ -6,10 +7,11 @@
   /* Suppression des bordures */
 }
 .mat-expansion-panel {
+    font-size: 1.2rem;
     border: none; /* Supprime les bordures des panels */
     box-shadow: none;
     margin-bottom: 10px;
-    width: 500px;
+    width: 190px;
 }
   .mat-icon {
     vertical-align: middle;
