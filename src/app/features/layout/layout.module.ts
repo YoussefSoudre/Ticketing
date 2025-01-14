@@ -23,6 +23,13 @@ import { HeaderComponent } from './header/header.component';
     CommonModule,
     LayoutRoutingModule,
     SharedModule 
+  ],
+  exports: [
+    CommonModule,
+    LayoutRoutingModule,
+    SharedModule,
+    HeaderComponent,
+    FooterComponent
   ]
 })
 export class LayoutModule { }

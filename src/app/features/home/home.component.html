@@ -1,3 +1,18 @@
+<body>
+    <app-header 
+        (towardHomeLoggedInClick)="recuponLoggedInClick($event)"
+        (towardHomeSignedUpClick)="recuponSignedUpClick($event)"
+        (towardHomeClick)="recuponHomeClick($event)">
+    </app-header>
+    
+    <div class="background">
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+    <section>
+        <app-login *ngIf="loggedInClick1"></app-login>
+        <app-signup *ngIf="signedUpClick2"></app-signup>
+    </section>
 
-
-<p>home works!</p>
+    <app-footer></app-footer>
+</body>

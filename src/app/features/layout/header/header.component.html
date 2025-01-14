@@ -1,5 +1,18 @@
-<header>
+<!-- header avant d'être connecté -->
 <header class="header">
+  <div class="logo-section">
+    <img src="src/assets/depositphotos_138965190-stock-illustration-ticket-design-concept.jpg" alt="Logo" class="logo" />
+    <a (click)="onHomeClick(false)">    <span class="title">| Mon Entreprise</span></a>
+  </div>
+
+  <div class="actions-section">
+    <button class="btn subscription" (click)="onLoggedInClick(true)">Se connecter</button>
+    <button class="btn subscription" (click)="onSignedUpClick(true)">S'inscrire</button>
+  </div>
+</header>
+
+<!-- header une fois connecté -->
+<!-- <header class="header">
   <div class="logo-section">
     <img src="src/assets/depositphotos_138965190-stock-illustration-ticket-design-concept.jpg" alt="Logo" class="logo" />
     <span class="title">| Mon Entreprise</span>
@@ -16,4 +29,5 @@
       <span class="icon"><mat-icon>settings</mat-icon></span>
     </div>
   </div>
-</header>
+
+</header> -->

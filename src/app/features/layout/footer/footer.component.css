@@ -15,7 +15,7 @@
   .footer-toolbar a {
     color: #BBDEFB; /* Couleur secondaire pour les liens */
     text-decoration: none;
-    font-weight: 500;
+    font-weight: 30;
   }
   .footer-toolbar a:hover {
     text-decoration: underline;
