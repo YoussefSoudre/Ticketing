@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { EmployerRoutingModule } from './employer-routing.module';
 import { EmployerComponent } from './employer.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
@@ -11,7 +12,9 @@ import { EmployerComponent } from './employer.component';
   ],
   imports: [
     CommonModule,
-    EmployerRoutingModule
+    EmployerRoutingModule,
+    SharedModule
+   
   ]
 })
 export class EmployerModule { }

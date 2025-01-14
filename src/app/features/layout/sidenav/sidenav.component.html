@@ -1,3 +1,4 @@
+<div class="sidenav">
 <div>
     <a href=""><mat-expansion-panel>
         <mat-expansion-panel-header>
@@ -24,7 +25,7 @@
                         <mat-icon>person</mat-icon>
                         <span>Clients</span>
                     </a>
-                    <a mat-list-item routerLink="/ticket/tickets">
+                    <a mat-list-item routerLink="/ticket/tickets/ticket">
                         <mat-icon class="ticket-icon">confirmation_number</mat-icon>
                         <span>ticket</span>
                     </a>
@@ -64,6 +65,26 @@
             <mat-icon>shopping_cart</mat-icon>
                 <span>Achat</span>
             </mat-expansion-panel-header>
+            <mat-action-list>
+                <a mat-list-item routerLink="" routerLinkActive="list-item-active">
+                    <mat-icon>assistwalker</mat-icon>
+                    <span>Intervention</span>
+                </a>
+                <a mat-list-item routerLink="">
+                    <mat-icon>calendar_today</mat-icon>
+                    <span>Pointage</span>
+                </a>
+                <a mat-list-item routerLink="">
+                    <mat-icon class="ticket-icon">bar_chart</mat-icon>
+                    <span>Satistique</span>
+                </a>
+                <a mat-list-item routerLink="/ticket/adresses">
+                    <mat-icon>email</mat-icon>
+                    <span>Messagerie</span>
+                </a>
+            
+            </mat-action-list>
         </mat-expansion-panel>
+       
     </div>
-   
+</div>

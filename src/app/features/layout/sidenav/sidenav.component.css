@@ -1,15 +1,21 @@
 .sidenavContainer {
-    width: 250px; /* Largeur de la sidebar */
+    width: 250; /* Largeur de la sidebar */
     background-color: #f8f9fa; /* Couleur de fond de la sidebar */
     padding: 10px;
     display: flex;
-  /* Suppression des bordures */
+    
+  
+}
+.sidnav{
+  width: 500px;
+  padding: 10px;
+  margin: 20px auto;
 }
 .mat-expansion-panel {
     border: none; /* Supprime les bordures des panels */
     box-shadow: none;
     margin-bottom: 10px;
-    width: 500px;
+    width: 250px;
 }
   .mat-icon {
     vertical-align: middle;
@@ -18,7 +24,7 @@
     text-align: center;
   }
   .mat-list-item {
-    color: #94A3B8 !important;
+    color: #f0f0f7 !important;
     font-size: 0.8rem;
     height: 44px !important;
     margin-bottom: 4px;
@@ -28,7 +34,7 @@
     margin: 0 8px;
   }
   .mat-list-item:hover::ng-deep .mat-list-item-content {
-    background-color: #2C3344 !important;
+    background-color: #475982;
   }
   .list-item-active {
     color: #F2F5F7 !important;

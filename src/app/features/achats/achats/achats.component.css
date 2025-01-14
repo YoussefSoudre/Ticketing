@@ -1,0 +1,35 @@
+.container {
+  padding: 16px;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.alert {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  margin-bottom: 16px;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.alert.success {
+  background-color: #dff0d8;
+  color: #3c763d;
+}
+
+.alert mat-icon {
+  margin-right: 8px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.full-width {
+  grid-column: span 2;
+}

@@ -22,7 +22,7 @@ import { HeaderComponent } from './header/header.component';
   imports: [
     CommonModule,
     LayoutRoutingModule,
-    SharedModule 
+    SharedModule
   ]
 })
 export class LayoutModule { }
