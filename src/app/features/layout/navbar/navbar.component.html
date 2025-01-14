@@ -1,37 +1,34 @@
-<!-- navbar.component.html -->
-<mat-toolbar class="navbar">
-    <div class="navbar-container">
-        
-        <!-- Bouton Ajouter un ticket -->
-        <button mat-raised-button color="primary">
-            <mat-icon>add</mat-icon>
-            Ajouter un ticket
-        </button>
+<div class="navbar">
+    <!-- Bouton Ajouter un ticket -->
+    <button mat-raised-button color="primary">
+        <mat-icon>add</mat-icon>
+        Ajouter un ticket
+    </button>
 
-        <!-- Sélecteur de dates -->
-        <button mat-stroked-button [matMenuTriggerFor]="dateMenu">
-            <mat-icon>calendar_today</mat-icon>
-            date min. - date max.
-            <mat-icon>arrow_drop_down</mat-icon>
-        </button>
-        <mat-menu #dateMenu="matMenu">
-           
-        </mat-menu>
+    <!-- Sélecteur de dates -->
+    <button mat-stroked-button [matMenuTriggerFor]="dateMenu">
+        <mat-icon>calendar_today</mat-icon>
+        date min. - date max.
+        <mat-icon>arrow_drop_down</mat-icon>
+    </button>
 
-        <!-- Filtres -->
-        <button mat-stroked-button [matMenuTriggerFor]="filterMenu">
-            <mat-icon>filter_list</mat-icon>
-            Filtres
-            <mat-icon>arrow_drop_down</mat-icon>
-        </button>
-        <mat-menu #filterMenu="matMenu">
-            <!-- Contenu du menu des filtres -->
-        </mat-menu>
+    <mat-menu #dateMenu="matMenu"></mat-menu>
 
-        <!-- Spacer -->
-        <span class="spacer"></span>
+    <!-- Filtres -->
+    <button mat-stroked-button [matMenuTriggerFor]="filterMenu">
+        <mat-icon>filter_list</mat-icon>
+        Filtres
+        <mat-icon>arrow_drop_down</mat-icon>
+    </button>
+    <mat-menu #filterMenu="matMenu">
+        <!-- Contenu du menu des filtres -->
+    </mat-menu>
 
-        <!-- Boutons de droite -->
+    <!-- Spacer -->
+    <span class="spacer"></span>
+
+    <!-- Boutons à gauche -->
+    <div class="left-items">
         <button mat-icon-button>
             <mat-icon>bookmark</mat-icon>
         </button>
@@ -49,8 +46,6 @@
             <mat-icon>arrow_drop_down</mat-icon>
             <mat-icon>table_chart</mat-icon>
             Options d'affichage
-                    
-
         </button>
         <mat-menu #displayMenu="matMenu">
             <!-- Options d'affichage -->
@@ -60,4 +55,4 @@
             <mat-icon>help</mat-icon>
         </button>
     </div>
-</mat-toolbar>
+</div>
