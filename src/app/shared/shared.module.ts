@@ -12,7 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { MatOptionModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-
+import { MatTabsModule } from '@angular/material/tabs';
 
 
 
@@ -31,7 +31,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     MatOptionModule,
     MatSelectModule,
     MatDatepickerModule,
-    FormsModule
+    FormsModule,
+    MatTabsModule
 
   ],
   exports: [
@@ -48,7 +49,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     MatOptionModule,
     MatSelectModule,
     MatDatepickerModule,
-
+    MatTabsModule
 
 
   ]

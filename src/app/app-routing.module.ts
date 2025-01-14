@@ -16,7 +16,7 @@ const routes: Routes = [
     {
       
       path: "", children: [
-        { path: "liste", loadChildren: () => import('./features/Tickets/tickets.module').then(m=> m.TicketModule)},
+        { path: "", loadChildren: () => import('./features/ticket/ticket.module').then(m=> m.TicketModule)},
         { path: "auth", loadChildren: () => import('./features/authentification/authentification.module').then(m => m.AuthentificationModule) },
         { path: "home", loadChildren: () => import('./features/home/home.module').then(m => m.HomeModule) },
         { path: "employer", loadChildren: () => import('./features/employer/employer.module').then(m => m.EmployerModule) },

@@ -8,7 +8,7 @@ import { FooterComponent } from './footer/footer.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { HeaderComponent } from './header/header.component';
-import { TicketModule } from '../Tickets/tickets.module';
+import { TicketModule } from '../ticket/ticket.module';
 
 
 @NgModule({
