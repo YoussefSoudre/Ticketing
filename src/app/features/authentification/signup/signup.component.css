@@ -77,7 +77,12 @@ button:hover:not(:disabled) {
   background: #0056b3;
 }
 
-div *ngIf {
+div  {
   color: red;
   font-size: 12px;
+  
+
+}
+small{
+  color: red;
 }

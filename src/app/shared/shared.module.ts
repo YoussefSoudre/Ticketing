@@ -32,7 +32,8 @@ import { MatTabsModule } from '@angular/material/tabs';
     MatSelectModule,
     MatDatepickerModule,
     FormsModule,
-    MatTabsModule
+    MatTabsModule,
+    ReactiveFormsModule
 
   ],
   exports: [

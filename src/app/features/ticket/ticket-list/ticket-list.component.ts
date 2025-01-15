@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-ticket-list',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./ticket-list.component.css']
 })
 export class TicketListComponent {
+  constructor(private router: Router) { }
+  navigateToOtherPage(): void {
+    this.router.navigate(['/ajouter']);
+  }
 
 }
