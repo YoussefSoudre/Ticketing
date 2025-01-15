@@ -16,9 +16,9 @@ import { LayoutModule } from '../layout/layout.module';
   imports: [
     CommonModule,
     HomeRoutingModule,
-   SharedModule,
-   AuthentificationModule,
-   LayoutModule
+    SharedModule,
+    AuthentificationModule,
+    LayoutModule
   ]
 })
 export class HomeModule { }

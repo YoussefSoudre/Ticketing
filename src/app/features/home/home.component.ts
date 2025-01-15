@@ -29,4 +29,17 @@ export class HomeComponent {
 
   }
 
+  // Cette partie est pour recuperer les données depuis login////////////////////////////////////////////////////////////////////////:
+
+loginLoggedInValue1: boolean=true;
+loginLoggedInValue2: boolean=false;
+changeHeader: boolean =false;
+displayAppLogin: boolean=false;
+
+recupLoginOnClick(response: boolean){
+  this.loginLoggedInValue1 = false;
+  this.loginLoggedInValue2 = response;
+  this.changeHeader = response;
+}
+
 }

@@ -9,6 +9,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { HeaderComponent } from './header/header.component';
 import { TicketModule } from '../ticket/ticket.module';
+import { AuthentificationModule } from '../authentification/authentification.module';
+import { ConnectedHeaderComponent } from './connected-header/connected-header.component';
 
 
 @NgModule({
@@ -18,20 +20,24 @@ import { TicketModule } from '../ticket/ticket.module';
     SidenavComponent,
     FooterComponent,
     LayoutComponent,
-    HeaderComponent
+    HeaderComponent,
+    ConnectedHeaderComponent
   ],
   imports: [
     CommonModule,
     LayoutRoutingModule,
     SharedModule,
-    TicketModule
+    TicketModule,
+    AuthentificationModule
   ],
   exports: [
     CommonModule,
     LayoutRoutingModule,
     SharedModule,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    AuthentificationModule,
+    NavbarComponent
   ]
 })
 export class LayoutModule { }

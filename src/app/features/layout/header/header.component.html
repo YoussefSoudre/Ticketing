@@ -1,7 +1,9 @@
+<app-login *ngIf="displayAppLogin"  (towardHeaderOnClick)="recupLoginOnClick($event)"></app-login>
+
 <!-- header avant d'être connecté -->
-<header class="header">
+<header class="header" *ngIf="loginLoggedInValue1">
   <div class="logo-section">
-    <img src="src/assets/depositphotos_138965190-stock-illustration-ticket-design-concept.jpg" alt="Logo" class="logo" />
+    <img src="/assets/images/logo/logo.jpg" alt="Logo" class="logo" />
     <a (click)="onHomeClick(false)">    <span class="title">| Mon Entreprise</span></a>
   </div>
 
@@ -12,7 +14,7 @@
 </header>
 
 <!-- header une fois connecté -->
-<!-- <header class="header">
+<header class="header" *ngIf="loginLoggedInValue2">
   <div class="logo-section">
     <img src="src/assets/depositphotos_138965190-stock-illustration-ticket-design-concept.jpg" alt="Logo" class="logo" />
     <span class="title">| Mon Entreprise</span>
@@ -30,4 +32,4 @@
     </div>
   </div>
 
-</header> -->
+</header>

@@ -1,7 +1,8 @@
 <app-header 
     (towardHomeLoggedInClick)="recuponLoggedInClick($event)"
     (towardHomeSignedUpClick)="recuponSignedUpClick($event)"
-    (towardHomeClick)="recuponHomeClick($event)">
+    (towardHomeClick)="recuponHomeClick($event)"
+    [changeHeader]="changeHeader">
 </app-header>
 <body>
     
@@ -10,7 +11,7 @@
         <div class="shape"></div>
     </div>
     <section>
-        <app-login *ngIf="loggedInClick1"></app-login>
+        <app-login *ngIf="loggedInClick1" (towardHeaderOnClick)="recupLoginOnClick($event)"></app-login>
         <app-signup *ngIf="signedUpClick2"></app-signup>
     </section>
 
