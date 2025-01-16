@@ -1,3 +1,11 @@
+:host {
+    display: block;
+    background: #fff;
+    border-radius: 8px;
+    padding: 8px 16px;
+  }
+  
+
 h2 {
     font-size: 24px;
     font-weight: bold;
@@ -8,54 +16,55 @@ h2 {
 
 /* Styles pour le formulaire */
 form {
-    max-width: 600px;
+    max-width: 80%;
     margin: 0 auto;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
+    display: flex;
+    flex-direction: column;
+  }
 
-.mat-form-field {
+  .nformgroup{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+    
+    gap: 1%;
     width: 100%;
-    margin-bottom: 16px;
-}
-
-.mat-form-field.mat-form-field-fill {
-    background-color: #ffffff;
-    border-radius: 4px;
-}
-
-.mat-form-field.mat-form-field-fill .mat-form-field-infix {
+    margin: 1% 0%;
+    padding: 1%;
+    /* border: 1px solid #333; */
+    /* border-radius: 5%; */
+  }
+  
+  div {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+  }
+  
+  input, select, textarea {
+    width: 100%;
     padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
     border-radius: 4px;
-    border: 1px solid #ddd;
-}
-
-.mat-form-field-label {
-    color: #555;
-}
-
-input.mat-input, 
-textarea.mat-input {
-    font-size: 16px;
-    color: #333;
+  }
+  
+  button {
     padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-}
-
-button.mat-raised-button {
-    width: 100%;
-    margin-top: 16px;
     background-color: #007bff;
-    color: #ffffff;
-    padding: 10px;
+    color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-}
-
-button.mat-raised-button:hover {
-    background-color: #0056b3;
-}
+  }
+  
+  button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  

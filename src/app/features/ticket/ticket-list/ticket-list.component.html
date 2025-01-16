@@ -3,11 +3,11 @@
 <!-- tickets.component.html -->
     <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start">
         <mat-tab label="Tout">
-            <div class="tickets-list">
-            <button mat-raised-button color="primary">
+            <button mat-raised-button color="primary" (click)="openDialog()">
                 <mat-icon>add</mat-icon>
-                Ajouter tickets
+                Ajouter un ticket
             </button>
+            <div class="tickets-list">
                 <!-- Liste des tickets -->
                 <table>
                     <thead>

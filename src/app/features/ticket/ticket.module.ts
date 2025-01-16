@@ -19,6 +19,12 @@ import { ModifierComponent } from './modifier/modifier.component';
     TicketRoutingModule,
     SharedModule,
     
+  ],
+  entryComponents: [
+    // AjouterComponent
+  ],
+  providers: [
+    // {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'outline'}}
   ]
 })
 export class TicketModule { }
