@@ -11,16 +11,19 @@ const routes: Routes = [
   {path: 'login/compte', component: LoginComponent},
   {path: 'new/signup', component: SignupComponent},
   {path: 'home', component: HomeComponent},
- 
- { path: "ticket", component: LayoutComponent, children: [
+
+ { path: "", component: LayoutComponent, children: [
     {
-      
+
       path: "", children: [
-        { path: "", loadChildren: () => import('./features/ticket/ticket.module').then(m=> m.TicketModule)},
+        { path: "ticket", loadChildren: () => import('./features/ticket/ticket.module').then(m=> m.TicketModule)},
         { path: "auth", loadChildren: () => import('./features/authentification/authentification.module').then(m => m.AuthentificationModule) },
         { path: "home", loadChildren: () => import('./features/home/home.module').then(m => m.HomeModule) },
-        { path: "employer", loadChildren: () => import('./features/employer/employer.module').then(m => m.EmployerModule) },
-        { path: "client", loadChildren: () => import('./features/client/client.module').then(m => m.ClientModule) },
+        { path: "employers", loadChildren: () => import('./features/employers/employers.module').then(m => m.EmployersModule) },
+        { path: "clients", loadChildren: () => import('./features/clients/clients.module').then(m => m.ClientsModule) },
+        { path: "achats", loadChildren: () => import('./features/achats/achats.module').then(m => m.AchatsModule) },
+
+
 
       ]
     }
