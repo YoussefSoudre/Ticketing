@@ -14,6 +14,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatDialogModule } from '@angular/material/dialog';
+// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
@@ -35,7 +36,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     FormsModule,
     MatTabsModule,
     ReactiveFormsModule,
-    MatDialogModule
+    MatDialogModule,
+    // BrowserAnimationsModule
 
   ],
   exports: [
@@ -52,7 +54,10 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatOptionModule,
     MatSelectModule,
     MatDatepickerModule,
-    MatTabsModule
+    MatTabsModule,
+    // BrowserAnimationsModule,
+    MatDialogModule,
+    ReactiveFormsModule
 
 
   ]

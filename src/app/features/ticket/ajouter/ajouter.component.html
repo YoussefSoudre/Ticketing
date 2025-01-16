@@ -1,6 +1,15 @@
 
 <h2>Ajouter un Ticket</h2>
 
+<!-- <div class="card flex justify-content-center">
+    <p-card header="Simple Card">
+        <p class="m-0">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque
+            quas!
+        </p>
+    </p-card>
+</div> -->
+
 <form [formGroup]="formulaire" (ngSubmit)="onSubmit()">
     
     <div class="formgroup">
@@ -73,79 +82,5 @@
       </div>
     </div>
   
-    <button type="submit" [disabled]="formulaire.invalid" (click)="closeDialog()">Soumettre</button>
+    <button type="submit" [disabled]="formulaire.invalid">Soumettre</button>
   </form>
-
-  <!-- <h2>Ajouter un Ticket</h2>
-
-<form [formGroup]="formulaire" (ngSubmit)="onSubmit()">
-  <mat-form-field appearance="fill" class="formgroup">
-    <mat-label>Titre</mat-label>
-    <input matInput formControlName="titre" placeholder="Entrez le titre">
-    <mat-error *ngIf="formulaire.get('titre')?.invalid && formulaire.get('titre')?.touched">
-      Veuillez entrer un titre (minimum 3 caractères).
-    </mat-error>
-  </mat-form-field>
-
-  <mat-form-field appearance="fill" class="formgroup">
-    <mat-label>Client</mat-label>
-    <mat-select formControlName="client">
-      <mat-option *ngFor="let option of clientOptions" [value]="option">{{ option }}</mat-option>
-    </mat-select>
-    <mat-error *ngIf="formulaire.get('client')?.invalid && formulaire.get('client')?.touched">
-      Veuillez sélectionner un client.
-    </mat-error>
-  </mat-form-field>
-
-  <div class="formgroup">
-    <mat-form-field appearance="fill">
-      <mat-label>Date de début</mat-label>
-      <input matInput type="date" formControlName="debut">
-      <mat-error *ngIf="formulaire.get('debut')?.invalid && formulaire.get('debut')?.touched">
-        Veuillez choisir une date de début.
-      </mat-error>
-    </mat-form-field>
-
-    <mat-form-field appearance="fill">
-      <mat-label>Date de fin</mat-label>
-      <input matInput type="date" formControlName="fin">
-      <mat-error *ngIf="formulaire.get('fin')?.invalid && formulaire.get('fin')?.touched">
-        Veuillez choisir une date de fin.
-      </mat-error>
-    </mat-form-field>
-  </div>
-
-  <mat-form-field appearance="fill" class="formgroup">
-    <mat-label>Statut</mat-label>
-    <mat-select formControlName="statut">
-      <mat-option *ngFor="let option of statutOptions" [value]="option">{{ option }}</mat-option>
-    </mat-select>
-    <mat-error *ngIf="formulaire.get('statut')?.invalid && formulaire.get('statut')?.touched">
-      Veuillez sélectionner un statut.
-    </mat-error>
-  </mat-form-field>
-
-  <mat-form-field appearance="fill" class="formgroup">
-    <mat-label>Priorité</mat-label>
-    <mat-select formControlName="priorite">
-      <mat-option *ngFor="let option of prioriteOptions" [value]="option">{{ option }}</mat-option>
-    </mat-select>
-    <mat-error *ngIf="formulaire.get('priorite')?.invalid && formulaire.get('priorite')?.touched">
-      Veuillez sélectionner une priorité.
-    </mat-error>
-  </mat-form-field>
-
-  <mat-form-field appearance="fill" class="formgroup">
-    <mat-label>Réponse</mat-label>
-    <textarea matInput formControlName="reponse" rows="3" placeholder="Entrez votre réponse"></textarea>
-    <mat-error *ngIf="formulaire.get('reponse')?.invalid && formulaire.get('reponse')?.touched">
-      Veuillez entrer une réponse (minimum 5 caractères).
-    </mat-error>
-  </mat-form-field>
-
-  <button mat-raised-button color="primary" type="submit" [disabled]="formulaire.invalid" (click)="closeDialog()">
-    Soumettre
-  </button>
-</form> -->
-
-  

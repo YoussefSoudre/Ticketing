@@ -1,12 +1,15 @@
 <!-- <app-navbar></app-navbar> -->
 
+
+
 <!-- tickets.component.html -->
+    <button mat-raised-button color="primary" (click)="showDialog('right')" label="right" styleClass="min-w-40">
+        <mat-icon>add</mat-icon>
+        Ajouter un ticket
+    </button>
     <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start">
+        
         <mat-tab label="Tout">
-            <button mat-raised-button color="primary" (click)="openDialog()">
-                <mat-icon>add</mat-icon>
-                Ajouter un ticket
-            </button>
             <div class="tickets-list">
                 <!-- Liste des tickets -->
                 <table>
@@ -158,3 +161,9 @@
 </div>
         </mat-tab>
       </mat-tab-group>
+
+      <div class="card">
+        <p-dialog header="Edit Profile" [modal]="true" [(visible)]="visible" [position]="position" [style]="{ width: '50rem' }">
+            <app-ajouter></app-ajouter>
+        </p-dialog>
+    </div>

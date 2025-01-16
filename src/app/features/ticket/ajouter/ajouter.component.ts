@@ -2,6 +2,7 @@ import { Component, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators  } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
+
 @Component({
   selector: 'app-ajouter',
   templateUrl: './ajouter.component.html',
@@ -11,8 +12,7 @@ export class AjouterComponent {
   formulaire!: FormGroup;
 
   constructor(
-    public dialogRef: MatDialogRef<AjouterComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any,
+    
     private fb: FormBuilder
   ) {
     this.formulaire = this.fb.group({
@@ -26,9 +26,7 @@ export class AjouterComponent {
     });
   }
 
-  closeDialog(): void {// fonction pour fermer le dialogue d'enregistrement
-    this.dialogRef.close();
-  }
+  
 
   onSubmit(): void {
     if (this.formulaire.valid) {
