@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MessagerieComponent } from './messagerie.component';
+import { EmployerListeComponent } from './employer-liste.component';
 
-describe('MessagerieComponent', () => {
-  let component: MessagerieComponent;
-  let fixture: ComponentFixture<MessagerieComponent>;
+describe('EmployerListeComponent', () => {
+  let component: EmployerListeComponent;
+  let fixture: ComponentFixture<EmployerListeComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MessagerieComponent ]
+      declarations: [ EmployerListeComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(MessagerieComponent);
+    fixture = TestBed.createComponent(EmployerListeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
