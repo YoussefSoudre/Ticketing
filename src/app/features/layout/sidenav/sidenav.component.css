@@ -1,23 +1,29 @@
+.sidnav{
+  width: 100%;
+  padding: 0px;
+  margin: 0px;
+}
 .sidenavContainer {
     font-size: 1.2rem;
-    width: 250px; /* Largeur de la sidebar */
+    width: 100%; /* Largeur de la sidebar */
     background-color: #f8f9fa; /* Couleur de fond de la sidebar */
-    padding: 10px;
+    padding: 0px;
     display: flex;
     
   
 }
-.sidnav{
-  width: 250PX;
-  padding: 10px;
-  margin: 20px auto;
+mat-nav-list{
+  padding-left: 3px;
+  width: 100%;
+  left: 0;
 }
 .mat-expansion-panel {
     font-size: 1em;
     border: none; /* Supprime les bordures des panels */
     box-shadow: none;
+    left: 0;
     margin-bottom: 10px;
-    width: 249px;
+    width: 100%;
 }
   .mat-icon {
     vertical-align: middle;
@@ -33,7 +39,7 @@
   }
   .mat-list-item::ng-deep .mat-list-item-content {
     border-radius: 5px;
-    margin: 0 8px;
+    margin: 0 0px;
   }
   .mat-list-item:hover::ng-deep .mat-list-item-content {
     background-color: #475982;

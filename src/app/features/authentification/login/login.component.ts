@@ -19,7 +19,7 @@ export class LoginComponent {
     // this.loggedInOnClick=true;
     this.towardHeaderOnClick.emit(loggedInOnClick);
     console.log('login page onClick value: ', loggedInOnClick);
-    this.router.navigate(['/ticket'])
+    this.router.navigate(['/auth/ticket'])
   }
 
 

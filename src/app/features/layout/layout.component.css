@@ -10,29 +10,43 @@ app-footer {
     position: absolute;
     width: 100%;
 }
-.container{
-    height: 300px;
+
+.container1{
+    height: 500px;
+    width: 100%;
     margin-top: 60px;
     margin-bottom: 50px;
 }
+
+app-sidenav{
+    width: 100%;
+}
+mat-drawer-container{
+    height: 90vh;
+    width: 100%;
+    left: 0px;
+}
 mat-drawer{
-    width: 250px;
+    width: 20%;
     height: auto;
+    left: 0px;
     position: absolute;
     /* background-color: azure; */
+}
+
+mat-drawer-content{
+    width: 80%;
+    height: 100%;
 }
 :host{
     height: 90vh;
     display: flex;
     flex-direction: column;
 }
-mat-drawer-container{
-    height: 90vh;
+router-outlet{
+    width: 100%;
 }
 .contentElement{
-    height: 80%;
-}
-.footerElement{
-    background-color: green;
-    height: 30px;
+    height: 100%;
+    width: 100%;
 }

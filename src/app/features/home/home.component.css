@@ -6,6 +6,10 @@
     box-sizing: border-box;
     padding-bottom: 100px;
 }
+.card{
+    width: auto;
+}
+
 body{
     background-color: #080710;
     overflow-y: scroll;
@@ -43,7 +47,7 @@ body{
     bottom: -80px;
     z-index: 0.5;
 }
-section{
+.section{
     display: flex;
     justify-content: center;
     align-content: center;

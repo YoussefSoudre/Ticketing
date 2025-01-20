@@ -1,29 +1,31 @@
 .ctn{
     margin-top: 100px;
 }
-  .ticket-icon {
+mat-tab-group{
+  padding:0px 5px;
+  width: 100%;
+}
+.ticket-icon {
   color: #ff5722; /* Couleur orange */
   font-size: 36px; /* Taille personnalisée */
 }
 .tickets-list table {
     width: 100%;
     border-collapse: collapse;
-    margin: 20px 0;
+    margin: 20px 0px;
     font-size: 16px;
-    text-align: left;
+    text-align: center;
 }
 
 /* Style des en-têtes du tableau */
 .tickets-list th {
     padding: 10px;
-    text-align: center;
     background-color: #f4f4f4;
     border: 1px solid #ddd;
     /* border: none; */
 }
 .tickets-list td {
     padding: 8px;
-    text-align: center;
     border: 1px solid #ddd;
 }
 button{
@@ -33,13 +35,43 @@ button{
 #actionButton1{
   font-size: 10px;
   color: green;
-  margin: 2px;
   }
   #actionButton2{
     font-size: 10px;
     color: red;
-    margin: 2px;
     }
     button{
       margin: 10px;
     }
+    
+/* css pour le navbar */
+    .navbar1 {
+      background-color: #fff; /* Couleur de fond */
+      padding:10px;
+      display: flex;
+      align-items: center;
+  }
+  
+  .navbar-container {
+      display: flex;
+      width: 100%;
+     
+  }
+  
+  .spacer {
+      flex-grow: 1; /* Crée un espace flexible */
+  }
+  
+  .navbar-container > button {
+      margin-right: 50px; 
+  }
+  
+  
+  
+  .navbar-container > button:first-child {
+      position: left;
+   /* Ajuste cette valeur selon le décalage souhaité */
+     left: 10px; /* Ajuste pour le positionnement horizontal */
+   
+  }
+  

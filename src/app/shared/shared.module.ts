@@ -14,6 +14,9 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatDialogModule } from '@angular/material/dialog';
+import { CarouselModule } from 'primeng/carousel';
+import { GalleriaModule } from 'primeng/galleria';
+import { ButtonModule } from 'primeng/button';
 // import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
@@ -38,7 +41,9 @@ import { MatDialogModule } from '@angular/material/dialog';
     ReactiveFormsModule,
     MatDialogModule,
     // BrowserAnimationsModule
-
+    CarouselModule,
+    GalleriaModule,
+    ButtonModule
   ],
   exports: [
     CommonModule,
@@ -57,7 +62,10 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatTabsModule,
     // BrowserAnimationsModule,
     MatDialogModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CarouselModule,
+    GalleriaModule,
+    ButtonModule
 
 
   ]
