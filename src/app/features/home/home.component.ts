@@ -1,6 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { HomeServiceService } from 'src/app/shared/services/homeServices/home-service.service';
+import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { AjouterComponent } from '../ticket/ajouter/ajouter.component';
+import { Dialog } from 'primeng/dialog';
+import { DialogService } from 'primeng/dynamicdialog';
 import { Tag } from 'primeng/tag';
+
 
 @Component({
   selector: 'app-home',
@@ -48,15 +54,22 @@ export class HomeComponent implements OnInit{
   loggedInClick1: boolean = false;
   signedUpClick2: boolean = false;
 
+  visible: boolean = false;
+
+  position: string = 'center';
+
   recuponLoggedInClick(response: boolean){
     this.loggedInClick1 = response;
     this.signedUpClick2 = false;
+    this.visible = true;
+
     console.log('loggin value: ', this.loggedInClick1);
   }
 
   recuponSignedUpClick(response: boolean){
     this.signedUpClick2 = response;
     this.loggedInClick1 = false;
+    this.visible = true;
 
     console.log('signup value: ', this.signedUpClick2);
 
@@ -80,5 +93,15 @@ export class HomeComponent implements OnInit{
     this.loginLoggedInValue2 = response;
     this.changeHeader = response;
   }
+
+  // Cette partie est pour recuperer les données depuis login////////////////////////////////////////////////////////////////////////:
+
+  
+
+    showDialog(position: string) {
+        this.position = position;
+        this.visible = true;
+        
+    }
 
 }
