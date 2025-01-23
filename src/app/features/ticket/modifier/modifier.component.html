@@ -1,1 +1,77 @@
-<p>modifier works!</p>
+
+<h2>Modifier un Ticket</h2>
+
+<form [formGroup]="formulaire" (ngSubmit)="onSubmit()">
+    
+    <div class="formgroup">
+
+        <div>
+            <label for="titre">Titre</label>
+            <input id="titre" type="text" formControlName="titre" matNativeControl>
+            <div *ngIf="formulaire.get('titre')?.invalid && formulaire.get('titre')?.touched">
+                Veuillez entrer un titre (minimum 3 caractères).
+            </div>
+        </div>
+        
+        <div>
+            <label for="client">Client</label>
+            <select id="client" formControlName="client" matNativeControl>
+                <option *ngFor="let option of clientOptions" [value]="option">{{ option }}</option>
+            </select>
+            <div *ngIf="formulaire.get('client')?.invalid && formulaire.get('client')?.touched">
+                Veuillez sélectionner un client.
+            </div>
+        </div>
+    </div>
+
+  <div class="formgroup">
+
+      <div>
+          <label for="debut">Date de début</label>
+          <input id="debut" type="date" formControlName="debut" matNativeControl>
+          <div *ngIf="formulaire.get('debut')?.invalid && formulaire.get('debut')?.touched">
+              Veuillez choisir une date de début.
+            </div>
+        </div>
+        
+        <div>
+            <label for="fin">Date de fin</label>
+            <input id="fin" type="date" formControlName="fin" matNativeControl>
+            <div *ngIf="formulaire.get('fin')?.invalid && formulaire.get('fin')?.touched">
+                Veuillez choisir une date de fin.
+            </div>
+        </div>
+    </div>
+
+    <div class="formgroup">
+        <div>
+            <label for="statut">Statut</label>
+      <select id="statut" formControlName="statut" matNativeControl>
+        <option *ngFor="let option of statutOptions" [value]="option">{{ option }}</option>
+      </select>
+      <div *ngIf="formulaire.get('statut')?.invalid && formulaire.get('statut')?.touched">
+        Veuillez sélectionner un statut.
+      </div>
+    </div>
+  
+    <div>
+      <label for="priorite">Priorité</label>
+      <select id="priorite" formControlName="priorite" matNativeControl>
+        <option *ngFor="let option of prioriteOptions" [value]="option">{{ option }}</option>
+      </select>
+      <div *ngIf="formulaire.get('priorite')?.invalid && formulaire.get('priorite')?.touched">
+        Veuillez sélectionner une priorité.
+      </div>
+    </div>
+    </div>
+  
+    <div>
+      <label for="reponse">Réponse</label>
+      <textarea id="reponse" formControlName="reponse" matNativeControl></textarea>
+      <div *ngIf="formulaire.get('reponse')?.invalid && formulaire.get('reponse')?.touched">
+        Veuillez entrer une réponse (minimum 5 caractères).
+      </div>
+    </div>
+  
+    <button type="submit" [disabled]="formulaire.invalid">Soumettre</button>
+  </form>

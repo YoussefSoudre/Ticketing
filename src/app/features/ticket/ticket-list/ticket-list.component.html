@@ -6,7 +6,7 @@
     
     <div class="navbar col-md-12">
         <!-- Bouton Ajouter un ticket -->
-        <button mat-raised-button color="primary" (click)="showDialog('right')" label="right" styleClass="min-w-40">
+        <button mat-raised-button color="primary" (click)="showAjouterDialog('right')" label="right" styleClass="min-w-40">
             <mat-icon>add</mat-icon>
             Ajouter un ticket
         </button>
@@ -95,7 +95,7 @@
                         <td>Done</td>
                         <td>
                         <div>
-                        <button id="actionButton1"><mat-icon>create</mat-icon></button>
+                        <button id="actionButton1" (click)="showModifierDialog('right')"><mat-icon>create</mat-icon></button>
                         <button id="actionButton2"><mat-icon>delete_forever</mat-icon></button>
                         </div>
                         </td>
@@ -134,7 +134,7 @@
                 <td>Done</td>
                 <td>
                     <div>
-                        <button id="actionButton1"><mat-icon>create</mat-icon></button>
+                        <button id="actionButton1" (click)="showModifierDialog('right')"><mat-icon>create</mat-icon></button>
                         <button id="actionButton2"><mat-icon>delete_forever</mat-icon></button>
                     </div>
                 </td>
@@ -217,11 +217,17 @@
   </tbody>
 </table>
 </div>
-        </mat-tab>
-      </mat-tab-group>
+</mat-tab>
+</mat-tab-group>
 
-      <div class="card">
-        <p-dialog header="Edit Profile" [modal]="true" [(visible)]="visible" [position]="position" [style]="{ width: '50rem' }">
-            <app-ajouter></app-ajouter>
-        </p-dialog>
-    </div>
+<!-- <div class="card">
+    <p-dialog *ngIf="modifierDialog" [header]="header" [modal]="true" [(visible)]="modifierDialogVisible" [position]="position" [style]="{ width: '50rem', height: '700px', marginTop: '70px' }">
+        <app-modifier></app-modifier>
+    </p-dialog>
+</div> -->
+<div class="card">
+    <p-dialog [header]="header" [modal]="true" [(visible)]="visible" [position]="position" [style]="{ width: '50rem', height: '500px' }">
+        <app-ajouter *ngIf="ajouterDialog"></app-ajouter>
+        <app-modifier *ngIf="modifierDialog"></app-modifier>
+    </p-dialog>
+</div>
