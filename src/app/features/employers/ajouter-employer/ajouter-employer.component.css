@@ -1,0 +1,48 @@
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Deux colonnes égales */
+    gap: 20px; /* Espacement entre les colonnes */
+    padding: 20px;
+  }
+  
+  .left-column, .right-column {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  label {
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  input, select, textarea {
+    margin-bottom: 15px;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  /* Style des cases à cocher */
+  .jours-travaille {
+    display: flex;
+    flex-direction: column; /* Disposition verticale */
+    gap: 10px;
+  }
+  
+  .jours-travaille mat-checkbox {
+    margin-bottom: 2px;
+  }
+  
+  /* Gérer la taille des champs photo et fichiers */
+  input[type="file"] {
+    padding: 5px;
+  }
+  
+  textarea {
+    resize: vertical;
+  }
+  .id{
+    border-radius: none;
+    opacity: 0;
+    border: none;
+  }

@@ -1,233 +1,315 @@
-<!-- <app-navbar></app-navbar> -->
 
-
-
-<!-- tickets.component.html -->
-    
-    <div class="navbar col-md-12">
-        <!-- Bouton Ajouter un ticket -->
-        <button mat-raised-button color="primary" (click)="showAjouterDialog('right')" label="right" styleClass="min-w-40">
-            <mat-icon>add</mat-icon>
-            Ajouter un ticket
-        </button>
-    
-        <!-- Sélecteur de dates -->
-        <button mat-stroked-button [matMenuTriggerFor]="dateMenu">
-            <mat-icon>calendar_today</mat-icon>
-            date min. - date max.
-            <mat-icon>arrow_drop_down</mat-icon>
-        </button>
-    
-        <mat-menu #dateMenu="matMenu"></mat-menu>
-    
-        <!-- Filtres -->
-        <button mat-stroked-button [matMenuTriggerFor]="filterMenu">
-            <mat-icon>filter_list</mat-icon>
-            Filtres
-            <mat-icon>arrow_drop_down</mat-icon>
-        </button>
-        <mat-menu #filterMenu="matMenu">
-            <!-- Contenu du menu des filtres -->
-        </mat-menu>
-    
-        <!-- Spacer -->
-        <span class="spacer"></span>
-    
-        <!-- Boutons à gauche -->
-        <div class="left-items">
-            <button mat-icon-button>
-                <mat-icon>bookmark</mat-icon>
-            </button>
-    
-            <button mat-stroked-button>
-                <mat-icon>download</mat-icon>
-                Export
-            </button>
-    
-            <button mat-icon-button>
-                <mat-icon>print</mat-icon>
-            </button>
-    
-            <button mat-stroked-button [matMenuTriggerFor]="displayMenu">
-                <mat-icon>arrow_drop_down</mat-icon>
-                <mat-icon>table_chart</mat-icon>
-                Options d'affichage
-            </button>
-            <mat-menu #displayMenu="matMenu">
-                <!-- Options d'affichage -->
-            </mat-menu>
-    
-            <button mat-icon-button>
-                <mat-icon>help</mat-icon>
-            </button>
-        </div>
-    </div>
-
-
-
-    <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start">
-        
-        <mat-tab label="Tout">
-            <div class="tickets-list">
-                <!-- Liste des tickets -->
-                <table>
-                    <thead>
-                        <tr>
-                            <th>N</th>
-                            <th>Statut</th>
-                            <th>Priorité</th>
-                            <th>Titre</th>
-                            <th>Clients</th>
-                            <th>Début</th>
-                            <th>Fin</th>
-                            <th>Réponse</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <td>1</td>
-                        <td>résolu</td>
-                        <td>1</td>
-                        <td>reparatin ecran</td>
-                        <td>Gango youssef</td>
-                        <td>12/12/2024</td>
-                        <td>7/1/2025</td>
-                        <td>Done</td>
-                        <td>
-                        <div>
-                        <button id="actionButton1" (click)="showModifierDialog('right')"><mat-icon>create</mat-icon></button>
-                        <button id="actionButton2"><mat-icon>delete_forever</mat-icon></button>
-                        </div>
-                        </td>
-                        <!-- Contenu des lignes -->
-                    </tbody>
-                </table>
+<div class="card">
+    <p-table
+        #dt1
+        [value]="customers"
+        dataKey="id"
+        [rows]="10"
+        [rowsPerPageOptions]="[10, 25, 50]"
+        [loading]="loading"
+        [paginator]="true"
+        [globalFilterFields]="['name', 'country.name', 'representative.name', 'status']"
+        >
+        <ng-template pTemplate="caption" #caption>
+            <div class="flex">
+              <!-- <p-button label="Clear" [outlined]="true" icon="pi pi-filter-slash" (click)="clear(dt1)" /> -->
+              <p-button label="Clear" class="p-button-outlined" icon="pi pi-filter-slash" (click)="clear(dt1)" />
+              <div class="p-inputgroup ml-auto">
+                <span class="p-inputgroup-addon">
+                  <i class="pi pi-search"></i>
+                </span>
+                <input pInputText type="text" (input)="dt1.filterGlobal($event, 'contains')" placeholder="Search keyword" />
+              </div>
             </div>
-        </mat-tab>
-        <mat-tab label="Ouvert">
-          <div class="tickets-list">
-
-            <!-- Liste des tickets -->
-            <table>
-            <thead>
-                <tr>
-                    <th>N</th>
-                    <th>Statut</th>
-                    <th>Priorité</th>
-                    <th>Titre</th>
-                    <th>Clients</th>
-                    <th>Début</th>
-                    <th>Fin</th>
-                    <th>Réponse</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Contenu des lignes -->
-                <td>1</td>
-                <td>résolu</td>
-                <td>1</td>
-                <td>reparatin ecran</td>
-                <td>Gango youssef</td>
-                <td>12/12/2024</td>
-                <td>7/1/2025</td>
-                <td>Done</td>
+          </ng-template>
+          
+        <ng-template pTemplate="header" #header>
+            <tr>
+                <th style="min-width:15rem">
+                    <div class="flex items-center">
+                        Name
+                        <p-columnFilter type="text" field="name" display="menu" />
+                    </div>
+                </th>
+                <th style="min-width:15rem">
+                    <div class="flex items-center">
+                        Country
+                        <p-columnFilter type="text" field="country.name" display="menu" />
+                    </div>
+                </th>
+                <th style="min-width:15rem">
+                    <div class="flex items-center">
+                        Agent
+                        <!-- <p-columnFilter field="representative" matchMode="in" display="menu" [showMatchModes]="false" [showOperator]="false" [showAddButton]="false">
+                            <ng-template pTemplate="header" #header>
+                                <div class="px-4 pt-4 pb-0">
+                                    <span class="font-bold">Agent Picker</span>
+                                </div>
+                            </ng-template>
+                            <ng-template pTemplate="body" #filter let-value let-filter="filterCallback">
+                                <p-multiSelect [(ngModel)]="value" [options]="representatives" placeholder="Any" (onChange)="filter($event)" optionLabel="name">
+                                    <ng-template let-option #item>
+                                        <div class="inline-block align-middle">
+                                            <img [alt]="option.label" src="https://primefaces.org/cdn/primeng/images/demo/avatar/{{ option.image }}" width="24" class="align-middle" />
+                                            <span class="ml-1 mt-1">{{ option.name }}</span>
+                                        </div>
+                                    </ng-template>
+                                </p-multiSelect>
+                            </ng-template>
+                        </p-columnFilter> -->
+                    </div>
+                </th>
+                <th style="min-width:10rem">
+                    <div class="flex items-center">
+                        Date
+                        <p-columnFilter type="date" field="date" display="menu" />
+                    </div>
+                </th>
+                <th style="min-width:10rem">
+                    <div class="flex items-center">
+                        Balance
+                        <p-columnFilter type="numeric" field="balance" display="menu" currency="USD" />
+                    </div>
+                </th>
+                <th style="min-width:10rem">
+                    <div class="flex items-center">
+                        Status
+                        <!-- <p-columnFilter field="status" matchMode="equals" display="menu">
+                            <ng-template #filter let-value let-filter="filterCallback">
+                                <p-dropdown [(ngModel)]="value" [options]="statuses" (onChange)="filter($event)" placeholder="Any">
+                                    <ng-template let-option #item>
+                                        <p-tag [value]="option.value" [severity]="getSeverity(option.label)" />
+                                    </ng-template>
+                                </p-dropdown>
+                            </ng-template>
+                        </p-columnFilter> -->
+                    </div>
+                </th>
+                <th style="min-width:10rem">
+                    <div class="flex items-center">
+                        Activity
+                        <!-- <p-columnFilter field="activity" matchMode="between" display="menu" [showMatchModes]="false" [showOperator]="false" [showAddButton]="false">
+                            <ng-template #filter let-filter="filterCallback">
+                                <p-slider [(ngModel)]="activityValues" [range]="true" (onSlideEnd)="filter($event)" styleClass="m-4" />
+                                <div class="flex items-center px-2">
+                                    <span>{{ activityValues[0] }}</span>
+                                    <span>{{ activityValues[1] }}</span>
+                                </div>
+                            </ng-template>
+                        </p-columnFilter> -->
+                    </div>
+                </th>
+                <th style="width: 3rem">
+                    <div class="flex items-center">
+                        Verified
+                        <p-columnFilter type="boolean" field="verified" display="menu" />
+                    </div>
+                </th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" #body let-customer>
+            <tr>
                 <td>
-                    <div>
-                        <button id="actionButton1" (click)="showModifierDialog('right')"><mat-icon>create</mat-icon></button>
-                        <button id="actionButton2"><mat-icon>delete_forever</mat-icon></button>
+                    {{ customer.name }}
+                </td>
+                <td>
+                    <div class="flex items-center gap-2">
+                    <!-- <img src="https://primefaces.org/cdn/primeng/images/demo/flag/flag_placeholder.png" [class]="'flag flag-' + customer.country.code" style="width: 20px" /> -->
+                    <span >{{ customer.country.name }}</span>
                     </div>
                 </td>
-            </tbody>
-            </table>
-            </div>
-        </mat-tab>
-        <mat-tab label="Clôturé">
-          <div class="tickets-list">
-
-          <!-- Liste des tickets -->
-          <table>
-            <thead>
-                <tr>
-                    <th>N</th>
-                    <th>Statut</th>
-                    <th>Priorité</th>
-                    <th>Titre</th>
-                    <th>Clients</th>
-                    <th>Début</th>
-                    <th>Fin</th>
-                    <th>Réponse</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Contenu des lignes -->
-                <td>1</td>
-                <td>résolu</td>
-                <td>1</td>
-                <td>reparatin ecran</td>
-                <td>Gango youssef</td>
-                <td>12/12/2024</td>
-                <td>7/1/2025</td>
-                <td>Done</td>
                 <td>
-                <div>
-                    <button id="actionButton1"><mat-icon>create</mat-icon></button>
-                    <button id="actionButton2"><mat-icon>delete_forever</mat-icon></button>
-                </div>
+                <div class="flex items-center gap-2">
+                    <!-- <img [alt]="customer.representative.name" src="https://primefaces.org/cdn/primeng/images/demo/avatar/{{ customer.representative.image }}" width="32"  /> -->
+                    <span >{{ customer.representative.name }}</span>
+                    </div>
                 </td>
-            </tbody>
-        </table>
-    </div>
-        </mat-tab>
-        <mat-tab label="Statistiques">
-          <div class="tickets-list">
-
-<!-- Liste des tickets -->
-<table>
-  <thead>
-      <tr>
-          <th>N</th>
-          <th>Statut</th>
-          <th>Priorité</th>
-          <th>Titre</th>
-          <th>Clients</th>
-          <th>Début</th>
-          <th>Fin</th>
-          <th>Réponse</th>
-          <th>Action</th>
-      </tr>
-  </thead>
-  <tbody>
-      <!-- Contenu des lignes -->
-      <td>1</td>
-      <td>résolu</td>
-      <td>1</td>
-      <td>reparatin ecran</td>
-      <td>Gango youssef</td>
-      <td>12/12/2024</td>
-      <td>7/1/2025</td>
-      <td>Done</td>
-      <td>
-      <div>
-        <button id="actionButton1"><mat-icon>create</mat-icon></button>
-        <button id="actionButton2"><mat-icon>delete_forever</mat-icon></button>
-      </div>
-      </td>
-  </tbody>
-</table>
+                <td>
+                    {{ customer.date | date: 'MM/dd/yyyy' }}
+                </td>
+                <td>
+                    {{ customer.balance | currency: 'USD' : 'symbol' }}
+                </td>
+                <td>
+                    <p-tag [value]="customer.status" [severity]="getSeverity(customer.status)" />
+                </td>
+                <td>
+                    <p-progressbar [value]="customer.activity" [showValue]="false" />
+                </td>
+                <td class="text-center">
+                    <i
+                        class="pi"
+                        [ngClass]="{
+                            'text-green-500 pi-check-circle': customer.verified,
+                            'text-red-500 pi-times-circle': !customer.verified
+                        }"
+                    ></i>
+                </td>
+            </tr>
+        </ng-template>
+        <ng-template #emptymessage>
+            <tr>
+                <td colspan="7">No customers found.</td>
+            </tr>
+        </ng-template>
+    </p-table>
 </div>
-</mat-tab>
-</mat-tab-group>
+
+
 
 <!-- <div class="card">
-    <p-dialog *ngIf="modifierDialog" [header]="header" [modal]="true" [(visible)]="modifierDialogVisible" [position]="position" [style]="{ width: '50rem', height: '700px', marginTop: '70px' }">
-        <app-modifier></app-modifier>
-    </p-dialog>
-</div> -->
-<div class="card">
-    <p-dialog [header]="header" [modal]="true" [(visible)]="visible" [position]="position" [style]="{ width: '50rem', height: '500px' }">
-        <app-ajouter *ngIf="ajouterDialog"></app-ajouter>
-        <app-modifier *ngIf="modifierDialog"></app-modifier>
-    </p-dialog>
+    <p-table
+        #dt1
+        [value]="customers"
+        dataKey="id"
+        [rows]="10"
+        [rowsPerPageOptions]="[10, 25, 50]"
+        [loading]="loading"
+        [paginator]="true"
+        [globalFilterFields]="['name', 'country.name', 'representative.name', 'status']"
+        >
+        <ng-template #caption>
+            <div class="flex">
+                <p-button label="Clear" [outlined]="true" icon="pi pi-filter-slash" (click)="clear(dt1)" />
+                <p-iconfield iconPosition="left" class="ml-auto">
+                    <p-inputicon>
+                        <i class="pi pi-search"></i>
+                    </p-inputicon>
+                    <input pInputText type="text" (input)="dt2.filterGlobal($event.target.value, 'contains')" placeholder="Search keyword" />
+                </p-iconfield>
+            </div>
+        </ng-template>
+        <ng-template #header>
+            <tr>
+                <th style="min-width:15rem">
+                    <div class="flex items-center">
+                        Name
+                        <p-columnFilter type="text" field="name" display="menu" />
+                    </div>
+                </th>
+                <th style="min-width:15rem">
+                    <div class="flex items-center">
+                        Country
+                        <p-columnFilter type="text" field="country.name" display="menu" />
+                    </div>
+                </th>
+                <th style="min-width:15rem">
+                    <div class="flex items-center">
+                        Agent
+                        <p-columnFilter field="representative" matchMode="in" display="menu" [showMatchModes]="false" [showOperator]="false" [showAddButton]="false">
+                            <ng-template #header>
+                                <div class="px-4 pt-4 pb-0">
+                                    <span class="font-bold">Agent Picker</span>
+                                </div>
+                            </ng-template>
+                            <ng-template #filter let-value let-filter="filterCallback">
+                                <p-multiSelect [(ngModel)]="value" [options]="representatives" placeholder="Any" (onChange)="filter($event.value)" optionLabel="name">
+                                    <ng-template let-option #item>
+                                        <div class="inline-block align-middle">
+                                            <img [alt]="option.label" src="https://primefaces.org/cdn/primeng/images/demo/avatar/{{ option.image }}" width="24" class="align-middle" />
+                                            <span class="ml-1 mt-1">{{ option.name }}</span>
+                                        </div>
+                                    </ng-template>
+                                </p-multiSelect>
+                            </ng-template>
+                        </p-columnFilter>
+                    </div>
+                </th>
+                <th style="min-width:10rem">
+                    <div class="flex items-center">
+                        Date
+                        <p-columnFilter type="date" field="date" display="menu" />
+                    </div>
+                </th>
+                <th style="min-width:10rem">
+                    <div class="flex items-center">
+                        Balance
+                        <p-columnFilter type="numeric" field="balance" display="menu" currency="USD" />
+                    </div>
+                </th>
+                <th style="min-width:10rem">
+                    <div class="flex items-center">
+                        Status
+                        <p-columnFilter field="status" matchMode="equals" display="menu">
+                            <ng-template #filter let-value let-filter="filterCallback">
+                                <p-dropdown [(ngModel)]="value" [options]="statuses" (onChange)="filter($event.value)" placeholder="Any">
+                                    <ng-template let-option #item>
+                                        <p-tag [value]="option.value" [severity]="getSeverity(option.label)" />
+                                    </ng-template>
+                                </p-dropdown>
+                            </ng-template>
+                        </p-columnFilter>
+                    </div>
+                </th>
+                <th style="min-width:10rem">
+                    <div class="flex items-center">
+                        Activity
+                        <p-columnFilter field="activity" matchMode="between" display="menu" [showMatchModes]="false" [showOperator]="false" [showAddButton]="false">
+                            <ng-template #filter let-filter="filterCallback">
+                                <p-slider [(ngModel)]="activityValues" [range]="true" (onSlideEnd)="filter($event.values)" styleClass="m-4" />
+                                <div class="flex items-center px-2">
+                                    <span>{{ activityValues[0] }}</span>
+                                    <span>{{ activityValues[1] }}</span>
+                                </div>
+                            </ng-template>
+                        </p-columnFilter>
+                    </div>
+                </th>
+                <th style="width: 3rem">
+                    <div class="flex items-center">
+                        Verified
+                        <p-columnFilter type="boolean" field="verified" display="menu" />
+                    </div>
+                </th>
+            </tr>
+        </ng-template>
+        <ng-template #body let-customer>
+            <tr>
+                <td>
+                    {{ customer.name }}
+                </td>
+                <td>
+                    <div class="flex items-center gap-2">
+                    <img src="https://primefaces.org/cdn/primeng/images/demo/flag/flag_placeholder.png" [class]="'flag flag-' + customer.country.code" style="width: 20px" />
+                    <span >{{ customer.country.name }}</span>
+                    </div>
+                </td>
+                <td>
+                <div class="flex items-center gap-2">
+                    <img [alt]="customer.representative.name" src="https://primefaces.org/cdn/primeng/images/demo/avatar/{{ customer.representative.image }}" width="32"  />
+                    <span >{{ customer.representative.name }}</span>
+                    </div>
+                </td>
+                <td>
+                    {{ customer.date | date: 'MM/dd/yyyy' }}
+                </td>
+                <td>
+                    {{ customer.balance | currency: 'USD' : 'symbol' }}
+                </td>
+                <td>
+                    <p-tag [value]="customer.status" [severity]="getSeverity(customer.status)" />
+                </td>
+                <td>
+                    <p-progressbar [value]="customer.activity" [showValue]="false" />
+                </td>
+                <td class="text-center">
+                    <i
+                        class="pi"
+                        [ngClass]="{
+                            'text-green-500 pi-check-circle': customer.verified,
+                            'text-red-500 pi-times-circle': !customer.verified
+                        }"
+                    ></i>
+                </td>
+            </tr>
+        </ng-template>
+        <ng-template #emptymessage>
+            <tr>
+                <td colspan="7">No customers found.</td>
+            </tr>
+        </ng-template>
+    </p-table>
 </div>
+
+
+ -->

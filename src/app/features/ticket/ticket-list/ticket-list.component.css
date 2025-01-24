@@ -74,4 +74,13 @@ button{
      left: 10px; /* Ajuste pour le positionnement horizontal */
    
   }
-  
+
+
+:host ::ng-deep .p-progressbar{
+        height: .5rem;
+        background-color: #D8DADC;
+}
+
+:host ::ng-deep .p-progressba .p-progressbar-value {
+          background-color: #607D8B;
+}

@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./layout.component.css']
 })
 export class LayoutComponent {
-
+  badgevisible = false;
+  badgevisibility() {
+    this.badgevisible = true;
+  }
 }

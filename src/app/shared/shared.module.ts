@@ -17,7 +17,25 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { CarouselModule } from 'primeng/carousel';
 import { GalleriaModule } from 'primeng/galleria';
 import { ButtonModule } from 'primeng/button';
-// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { TagModule } from 'primeng/tag';
+import { HttpClientModule } from '@angular/common/http';
+import { InputTextModule } from 'primeng/inputtext';
+import { MultiSelectModule } from 'primeng/multiselect';
+import { TableModule } from 'primeng/table';
+import { DropdownModule } from 'primeng/dropdown'
+import { PrimeIcons } from 'primeng/api';
+
+
+// // Angular Core
+
+// // PrimeNG Modules
+// import { IconFieldModule } from 'primeng/iconfield';
+import { SliderModule } from 'primeng/slider';
+import { ProgressBarModule } from 'primeng/progressbar';
+// import { ColumnFilterModule } from 'primeng/columnfilter'; // Si nécessaire
+import { PaginatorModule } from 'primeng/paginator';
+
 
 
 
@@ -25,6 +43,15 @@ import { ButtonModule } from 'primeng/button';
 @NgModule({
   declarations: [],
   imports: [
+    PaginatorModule,
+    ProgressBarModule,
+    SliderModule,
+    DropdownModule,
+    TableModule,
+    MultiSelectModule,
+    InputTextModule,
+    HttpClientModule,
+    TagModule,
     CommonModule,
     MatSidenavModule,
     MatMenuModule,
@@ -43,9 +70,25 @@ import { ButtonModule } from 'primeng/button';
     // BrowserAnimationsModule
     CarouselModule,
     GalleriaModule,
-    ButtonModule
+    ButtonModule,
+
   ],
   exports: [
+    PaginatorModule,
+    ProgressBarModule,
+    SliderModule,
+    DropdownModule,
+    TableModule,
+    MultiSelectModule,
+    InputTextModule,
+    HttpClientModule,
+    TagModule,
+    DropdownModule,
+    TableModule,
+    MultiSelectModule,
+    InputTextModule,
+    HttpClientModule,
+    TagModule,
     CommonModule,
     MatSidenavModule,
     MatMenuModule,
@@ -60,7 +103,6 @@ import { ButtonModule } from 'primeng/button';
     MatSelectModule,
     MatDatepickerModule,
     MatTabsModule,
-    // BrowserAnimationsModule,
     MatDialogModule,
     ReactiveFormsModule,
     CarouselModule,

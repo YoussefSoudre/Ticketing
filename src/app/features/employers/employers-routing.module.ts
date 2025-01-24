@@ -7,9 +7,7 @@ import { EmployerListeComponent } from './employer-liste/employer-liste.componen
 const routes: Routes = [
   {path:'ajouter-employer',component:AjouterEmployerComponent},
   {path:'modifier-employer',component:ModifierClientComponent},
-  {
-path:'employer-liste',component:EmployerListeComponent
-  }
+  {path:'employer-liste',component:EmployerListeComponent}
 ];
 
 @NgModule({

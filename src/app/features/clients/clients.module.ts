@@ -5,6 +5,7 @@ import { ClientsRoutingModule } from './clients-routing.module';
 import { ClientListComponent } from './client-list/client-list.component';
 import { AjouterClientComponent } from './ajouter-client/ajouter-client.component';
 import { ModifierClientComponent } from './modifier-client/modifier-client.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { ModifierClientComponent } from './modifier-client/modifier-client.compo
   ],
   imports: [
     CommonModule,
-    ClientsRoutingModule
+    ClientsRoutingModule,
+    SharedModule
   ]
 })
 export class ClientsModule { }

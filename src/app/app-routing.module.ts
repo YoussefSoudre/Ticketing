@@ -12,7 +12,7 @@ const routes: Routes = [
   {path: 'new/signup', component: SignupComponent},
   {path: '', component: HomeComponent},
 
- { path: "auth", component: LayoutComponent, children: [
+ { path: "", component: LayoutComponent, children: [
     {
 
       path: "", children: [
