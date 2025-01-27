@@ -64,3 +64,11 @@ div *ngIf {
   color: red;
   font-size: 12px;
 }
+.actions{
+  text-align: right;
+}
+.create-account{
+  text-align: right;
+  border: none !important;
+  
+}

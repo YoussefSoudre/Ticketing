@@ -6,6 +6,9 @@ import { InterventionComponent } from './intervention/intervention.component';
 import { MessagerieComponent } from './messagerie/messagerie.component';
 import { PointagesComponent } from './pointages/pointages.component';
 import { SatistiqueComponent } from './satistique/satistique.component';
+import { SharedModule } from 'src/app/shared/shared.module';
+import { EmployersModule } from '../employers/employers.module';
+
 
 
 @NgModule({
@@ -13,11 +16,14 @@ import { SatistiqueComponent } from './satistique/satistique.component';
     InterventionComponent,
     MessagerieComponent,
     PointagesComponent,
-    SatistiqueComponent
+    SatistiqueComponent,
+   
   ],
   imports: [
     CommonModule,
-    AchatsRoutingModule
+    AchatsRoutingModule,
+    SharedModule,
+    EmployersModule
   ]
 })
 export class AchatsModule { }

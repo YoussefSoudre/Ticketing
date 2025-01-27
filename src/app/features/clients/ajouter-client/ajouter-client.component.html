@@ -1,30 +1,53 @@
-<h1>Ajouter Client</h1>
-
-<div>
-  <div class="container">
-    <!-- Colonne de gauche -->
-    <div class="left-column">
-      <label for="identifiant">Identifiant:</label>
-      <input type="text" id="identifiant" name="identifiant" />
-
-      <label for="motdepasse">Mot de passe:</label>
-
-      <span>
-        <input type="password" id="motdepasse" name="motdepasse" />
-        <mat-icon>visibility</mat-icon>
-      </span>
-      <label for="name">Nom de la compagnie:</label>
-      <input type="text" id="nom" name="nom" />
-
-      <label for="no">Telephone:</label>
-      <input type="text" id="no" name="no" />
-        <label for="email">Email:</label>
-      <input type="email" id="email" name="email" />
-
-      <label for="description">Description:</label>
-      <textarea id="description" name="description" rows="2"></textarea>
+<div class="container">
+  <h2>Ajouter clients</h2>
+  <form [formGroup]="clientForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="firstName">Prénom</label>
+      <input id="firstName" formControlName="firstName" type="text" class="form-control" placeholder="Prénom" />
+      <div *ngIf="clientForm.get('firstName')?.invalid && clientForm.get('firstName')?.touched" class="error">
+        Le prénom est requis et doit contenir au moins 3 caractères.
+      </div>
     </div>
-  </div>
 
-  <button>Enregistre</button>
+    <div class="form-group">
+      <label for="lastName">Nom</label>
+      <input id="lastName" formControlName="lastName" type="text" class="form-control" placeholder="Nom" />
+      <div *ngIf="clientForm.get('lastName')?.invalid && clientForm.get('lastName')?.touched" class="error">
+        Le nom est requis et doit contenir au moins 6 caractères.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="phone">Téléphone</label>
+      <input id="phone" formControlName="phone" type="text" class="form-control" placeholder="Téléphone" />
+      <div *ngIf="clientForm.get('phone')?.invalid && clientForm.get('phone')?.touched" class="error">
+        Un numéro de téléphone valide est requis.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input id="email" formControlName="email" type="email" class="form-control" placeholder="Email" />
+      <div *ngIf="clientForm.get('email')?.invalid && clientForm.get('email')?.touched" class="error">
+        Un email valide est requis.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="statut">Status</label>
+      <select id="statut" formControlName="statut" class="form-control">
+        <option value="Active">Active</option>
+        <option value="Inactive">Inactive</option>
+      </select>
+    </div>
+      <div class="form-group">
+        <label for="subscriptionPlan">subscriptionPlan</label>
+        <select id="subscriptionPlan" formControlName="subscriptionPlan" class="form-control">
+          <option value="Basic">Basic</option>
+          <option value="Prenium">Prenium</option>
+        </select>
+      </div>
+
+    <button type="submit" [disabled]="clientForm.invalid" class="btn btn-primary">Ajouter</button>
+  </form>
 </div>

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators,FormControl } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 
 
 
@@ -10,29 +10,39 @@ import { FormBuilder, FormGroup, Validators,FormControl } from '@angular/forms';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent {
-  
-formulaire: FormGroup;
+
+  formulaire: FormGroup;
 
   constructor(private fb: FormBuilder) {
-   
 
-    // Création du formulaire avec le validateur personnalisé
+
     this.formulaire = new FormGroup(
       {
-        name: new FormControl( [Validators.required]),
-        email: new FormControl( [Validators.required, Validators.email]),
-        password: new FormControl( [Validators.required, Validators.minLength(8)]),
-        confirmPassword: new FormControl( [Validators.required])
+        name: new FormControl('',[Validators.required,Validators.minLength(3)]),
+        email: new FormControl('',[Validators.required, Validators.email]),
+        phone: new FormControl('', [Validators.required, Validators.minLength(8)]),
+        password: new FormControl('',[Validators.required, Validators.minLength(8)]),
+        confirmPassword: new FormControl('',[Validators.required])
       },
-  
-     
+
+
     );
   }
 
-  // Validateur personnalisé pour vérifier la correspondance des mots de passe
+  passwordMatchValidator(formGroup: FormGroup) {
+    const password = formGroup.get('password')?.value;
+    const confirmPassword = formGroup.get('confirmPassword')?.value;
+
+    if (password !== confirmPassword) {
+      formGroup.get('confirmPassword')?.setErrors({ mismatch: true });
+    } else {
+      formGroup.get('confirmPassword')?.setErrors(null);
+    }
+  }
 
 
-  // Gestion de la soumission du formulaire
+
+
   onSubmit() {
     if (this.formulaire.valid) {
       console.log('Formulaire soumis avec succès :', this.formulaire.value);
@@ -40,5 +50,5 @@ formulaire: FormGroup;
       console.log('Le formulaire est invalide');
     }
   }
- 
+
 }
