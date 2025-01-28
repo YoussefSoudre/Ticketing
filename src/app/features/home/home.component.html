@@ -595,7 +595,6 @@
   <script src="/assets/bootstrap-homePage/assets/bootstrap-homePage/js/scripts.js"></script>
   <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
   <!-- * *                               SB Forms JS                               * *-->
-  <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
   <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
   <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
   </body>
@@ -673,19 +672,19 @@
         
         
     </div> -->
-    <section>
+    <!-- <section>
         <app-login *ngIf="loggedInClick1" (towardHeaderOnClick)="recupLoginOnClick($event)"></app-login>
         <app-signup *ngIf="signedUpClick2"></app-signup>
-    </section>
+    </section> -->
 
     
 
 <!-- </body> -->
 
-<div class="card">
-        <p-dialog header="Edit Profile" [modal]="true" [(visible)]="visible" [position]="position" [style]="{ width: '50rem' }">
+<!-- <div class="card mt-5"> -->
+        <p-dialog header="" [modal]="true" [(visible)]="visible" [position]="position" [style]="{ width: '50rem', marginTop: '' }">
           <app-login *ngIf="loggedInClick1"></app-login>
-        <app-signup *ngIf="signedUpClick2"></app-signup>
+            <app-signup *ngIf="signedUpClick2"></app-signup>
           
         </p-dialog>
-    </div>
+    <!-- </div> -->
