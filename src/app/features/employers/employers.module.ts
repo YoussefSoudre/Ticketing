@@ -6,6 +6,7 @@ import { EmployerListeComponent } from './employer-liste/employer-liste.componen
 import { ModifierEmployerComponent } from './modifier-employer/modifier-employer.component';
 import { AjouterEmployerComponent } from './ajouter-employer/ajouter-employer.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { DialogModule } from 'primeng/dialog';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
   imports: [
     CommonModule,
     EmployersRoutingModule,
-    SharedModule
+    SharedModule,
+    DialogModule
   ]
 })
 export class EmployersModule { }
