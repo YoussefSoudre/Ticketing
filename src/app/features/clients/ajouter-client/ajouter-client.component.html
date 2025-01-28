@@ -2,18 +2,24 @@
   <h2>Ajouter clients</h2>
   <form [formGroup]="clientForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
-      <label for="firstName">Prénom</label>
-      <input id="firstName" formControlName="firstName" type="text" class="form-control" placeholder="Prénom" />
-      <div *ngIf="clientForm.get('firstName')?.invalid && clientForm.get('firstName')?.touched" class="error">
-        Le prénom est requis et doit contenir au moins 3 caractères.
+      <label for="firstName">Nom</label>
+      <input id="Nom" formControlName="Nom" type="text" class="form-control" placeholder="Nom" />
+      <div *ngIf="clientForm.get('Nom')?.invalid && clientForm.get('Nom')?.touched" class="error">
+        Le Nom est requis et doit contenir au moins 3 caractères.
       </div>
     </div>
-
     <div class="form-group">
-      <label for="lastName">Nom</label>
-      <input id="lastName" formControlName="lastName" type="text" class="form-control" placeholder="Nom" />
-      <div *ngIf="clientForm.get('lastName')?.invalid && clientForm.get('lastName')?.touched" class="error">
-        Le nom est requis et doit contenir au moins 6 caractères.
+      <label for="adresse">Adresse</label>
+      <input id="adresse" formControlName="adresse" type="text" class="form-control" placeholder="Emplacement de la societe" />
+      <div *ngIf="clientForm.get('email')?.invalid && clientForm.get('email')?.touched" class="error">
+    Emplacement de la societe est requis.
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input id="email" formControlName="email" type="email" class="form-control" placeholder="Email" />
+      <div *ngIf="clientForm.get('email')?.invalid && clientForm.get('email')?.touched" class="error">
+        Un email valide est requis.
       </div>
     </div>
 
@@ -25,13 +31,7 @@
       </div>
     </div>
 
-    <div class="form-group">
-      <label for="email">Email</label>
-      <input id="email" formControlName="email" type="email" class="form-control" placeholder="Email" />
-      <div *ngIf="clientForm.get('email')?.invalid && clientForm.get('email')?.touched" class="error">
-        Un email valide est requis.
-      </div>
-    </div>
+   
 
     <div class="form-group">
       <label for="statut">Status</label>

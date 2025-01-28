@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { EmployeeService } from 'src/app/shared/services/clientDasboardServices/employeeService/employee.service';
 
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -11,7 +12,7 @@ export class AjouterEmployerComponent {
   employeeForm: FormGroup;
 
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private employeeService: EmployeeService) {
     this.employeeForm = this.fb.group({
       id: [this.generateId(), Validators.required],
       firstName: ['', [Validators.required, Validators.minLength(3)]],
@@ -27,6 +28,8 @@ export class AjouterEmployerComponent {
     if (this.employeeForm.valid) {
       const { value: newEmployee } = this.employeeForm;
       console.log('Employee Created:', newEmployee);
+      this.employeeService.addEmployee(newEmployee);
+
       // Vous pouvez ensuite envoyer `newEmployee` à votre backend ou l'ajouter à une liste locale.
     } else {
       console.log('Form Invalid');
