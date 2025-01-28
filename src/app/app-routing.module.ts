@@ -11,6 +11,7 @@ const routes: Routes = [
   {path: 'login/compte', component: LoginComponent},
   {path: 'new/signup', component: SignupComponent},
   {path: '', component: HomeComponent},
+  
 
  { path: "", component: LayoutComponent, children: [
     {

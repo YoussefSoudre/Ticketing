@@ -1,17 +1,33 @@
 <div class="login-container">
-    <h2>Connexion</h2>
-    <form>
-        <div class="form-group">
-            <label for="email">Adresse e-mail</label>
-            <input id="email" type="email" formControlName="email" placeholder="Votre adresse e-mail" />
+    <div class="login-card">
+        <h2>Bienvenue !</h2>
+        <p>Connectez-vous à votre compte</p>
+        <form>
+            <div class="form-group">
+                <label for="email">Adresse e-mail</label>
+                <div class="input-container">
+                    <i class="icon fa fa-envelope"></i>
+                    <input id="email" type="email" placeholder="Votre adresse e-mail" required />
+                </div>
+            </div>
 
+            <div class="form-group">
+                <label for="password">Mot de passe</label>
+                <div class="input-container">
+                    <i class="icon fa fa-lock"></i>
+                    <input id="password" type="password" placeholder="Votre mot de passe" required />
+                </div>
+            </div>
+            <div class="actions">
+                <button type="submit" class="btn-login">Se connecter</button>
+                <a href="#" class="forgot-password">Mot de passe oublié ?</a>
+            </div>
+        </form>
+
+     
+        <div class="create-account">
+            <p>Pas encore de compte ?</p>
+            <a href="#" class="btn-create-account" >Créer un compte</a>
         </div>
-
-        <div class="form-group">
-            <label for="password">Mot de passe</label>
-            <input id="password" type="password" formControlName="password" placeholder="Votre mot de passe" />
-
-        </div>
-        <button type="submit" (click)="onloggedInOnClick(true)">Se connecter</button>
-    </form>
+    </div>
 </div>

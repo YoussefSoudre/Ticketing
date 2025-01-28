@@ -1,109 +1,72 @@
-/* Style général */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
-    margin: 0;
-    padding: 20px;
-  }
-  
-  h1 {
-    text-align: center;
-    color: #3f51b5;
-    margin-bottom: 20px;
-  }
-  
-  /* Conteneur du formulaire */
-  .form-container {
-    max-width: 800px;
-    margin: 0 auto;
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Conteneur des colonnes */
-  .container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-  
-  /* Colonne de gauche */
-  .left-column {
-    flex: 1;
-    min-width: 300px;
-  }
-  
-  /* Groupe de formulaire */
-  .form-group {
-    margin-bottom: 20px;
-  }
-  
-  .form-group label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 5px;
-    color: #333;
-  }
-  
-  .form-group input,
-  .form-group textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-    box-sizing: border-box;
-  }
-  
-  .form-group textarea {
-    resize: vertical;
-  }
-  
-  /* Champ mot de passe avec icône */
-  .password-input {
-    position: relative;
-  }
-  
-  .password-input input {
-    padding-right: 40px; /* Espace pour l'icône */
-  }
-  
-  .password-input mat-icon {
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    cursor: pointer;
-    color: #666;
-  }
-  
-  /* Bouton Enregistrer */
-  .submit-button {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    background-color: #3f51b5;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .submit-button:hover {
-    background-color: #303f9f;
-  }
-  
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    .container {
-      flex-direction: column;
-    }
-  
-    .left-column {
-      min-width: 100%;
-    }
-  }
+.container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #f9f9f9; /* Couleur de fond douce */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre douce */
+  font-family: Arial, sans-serif;
+}
+
+.container h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  font-weight: bold;
+  color: #555;
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+input:focus,
+select:focus {
+  border-color: #007bff; /* Couleur bleue lors du focus */
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
+
+.error {
+  color: #e74c3c;
+  font-size: 0.9rem;
+  margin-top: 5px;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+button:hover:not(:disabled) {
+  background-color: #0056b3; /* Couleur bleue plus foncée au survol */
+}

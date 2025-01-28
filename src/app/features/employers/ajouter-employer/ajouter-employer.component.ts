@@ -1,10 +1,40 @@
 import { Component } from '@angular/core';
 
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 @Component({
   selector: 'app-ajouter-employer',
   templateUrl: './ajouter-employer.component.html',
   styleUrls: ['./ajouter-employer.component.css']
 })
 export class AjouterEmployerComponent {
+  employeeForm: FormGroup;
+
+
+  constructor(private fb: FormBuilder) {
+    this.employeeForm = this.fb.group({
+      id: [this.generateId(), Validators.required],
+      firstName: ['', [Validators.required, Validators.minLength(3)]],
+      lastName: ['', [Validators.required, Validators.minLength(6)]],
+      phone: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],
+      email: ['', [Validators.required, Validators.email]],
+      role: ['', Validators.required],
+    });
+  }
+  ngOnInit(): void { }
+
+  onSubmit() {
+    if (this.employeeForm.valid) {
+      const { value: newEmployee } = this.employeeForm;
+      console.log('Employee Created:', newEmployee);
+      // Vous pouvez ensuite envoyer `newEmployee` à votre backend ou l'ajouter à une liste locale.
+    } else {
+      console.log('Form Invalid');
+    }
+  }
+
+  private generateId(): string {
+    return Math.random().toString(36).substring(2, 15); // Génère un identifiant unique
+  }
 
 }
