@@ -2,7 +2,7 @@
 export interface Client {
     id: string;
     name: string;
-    address?: string;
+    adresse?: string;
     phone: string;
     status: 'ACTIVE' | 'INACTIVE'; // Statut du client
     subscriptionPlan: string; // Exemple : "Basic", "Premium", etc.
@@ -21,7 +21,7 @@ export interface Employee {
 
 export interface Ticket {
     id: string;
-    title: string;
+    titre: string;
     description: string;
     priority: 'LOW' | 'MEDIUM' | 'HIGH'; // Niveau de priorité
     status: 'NEW' | 'IN_PROGRESS' | 'COMPLETED'; // Statut du ticket

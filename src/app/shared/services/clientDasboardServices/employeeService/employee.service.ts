@@ -15,10 +15,11 @@ export class EmployeeService {
   addEmployee(value: Employee): void {
     let val = value;
     let body = {
+      id: value.id,  
       firstName: value.firstName,
       lastName: value.lastName,
       phone: value.phone,
-     email: value.email,
+      email: value.email,
       role: value.role,
     
     }

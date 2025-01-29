@@ -1,86 +1,76 @@
-
 <h2>Ajouter un Ticket</h2>
 
-<!-- <div class="card flex justify-content-center">
-    <p-card header="Simple Card">
-        <p class="m-0">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque
-            quas!
-        </p>
-    </p-card>
-</div> -->
+
 
 <form [formGroup]="formulaire" (ngSubmit)="onSubmit()">
-    
-    <div class="formgroup">
-
-        <div>
-            <label for="titre">Titre</label>
-            <input id="titre" type="text" formControlName="titre" matNativeControl>
-            <div *ngIf="formulaire.get('titre')?.invalid && formulaire.get('titre')?.touched">
-                Veuillez entrer un titre (minimum 3 caractères).
-            </div>
-        </div>
-        
-        <div>
-            <label for="client">Client</label>
-            <select id="client" formControlName="client" matNativeControl>
-                <option *ngFor="let option of clientOptions" [value]="option">{{ option }}</option>
-            </select>
-            <div *ngIf="formulaire.get('client')?.invalid && formulaire.get('client')?.touched">
-                Veuillez sélectionner un client.
-            </div>
-        </div>
-    </div>
 
   <div class="formgroup">
 
-      <div>
-          <label for="debut">Date de début</label>
-          <input id="debut" type="date" formControlName="debut" matNativeControl>
-          <div *ngIf="formulaire.get('debut')?.invalid && formulaire.get('debut')?.touched">
-              Veuillez choisir une date de début.
-            </div>
-        </div>
-        
-        <div>
-            <label for="fin">Date de fin</label>
-            <input id="fin" type="date" formControlName="fin" matNativeControl>
-            <div *ngIf="formulaire.get('fin')?.invalid && formulaire.get('fin')?.touched">
-                Veuillez choisir une date de fin.
-            </div>
-        </div>
+    <div>
+      <label for="titre">Titre</label>
+      <input id="titre" type="text" formControlName="titre" matNativeControl>
+      <div *ngIf="formulaire.get('titre')?.invalid && formulaire.get('titre')?.touched">
+        Veuillez entrer un titre (minimum 3 caractères).
+      </div>
     </div>
-
-    <div class="formgroup">
-        <div>
-            <label for="statut">Statut</label>
-      <select id="statut" formControlName="statut" matNativeControl>
+    <div>
+      <label for="description">Description</label>
+      <textarea id="description" formControlName="description" matNativeControl></textarea>
+      <div *ngIf="formulaire.get('description')?.invalid && formulaire.get('description')?.touched">
+        Veuillez entrer une description (minimum 5 caractères).
+      </div>
+    </div>
+    <div>
+      <label for="priority">Priority</label>
+      <select id="priority" formControlName="priority" matNativeControl>
+        <option *ngFor="let option of priorityOptions" [value]="option">{{ option }}</option>
+      </select>
+      <div *ngIf="formulaire.get('priority')?.invalid && formulaire.get('priority')?.touched">
+        Veuillez sélectionner une priorité.
+      </div>
+    </div>
+    <div>
+      <label for="statut">Status</label>
+      <select id="status" formControlName="status" matNativeControl>
         <option *ngFor="let option of statutOptions" [value]="option">{{ option }}</option>
       </select>
       <div *ngIf="formulaire.get('statut')?.invalid && formulaire.get('statut')?.touched">
         Veuillez sélectionner un statut.
       </div>
     </div>
-  
     <div>
-      <label for="priorite">Priorité</label>
-      <select id="priorite" formControlName="priorite" matNativeControl>
-        <option *ngFor="let option of prioriteOptions" [value]="option">{{ option }}</option>
-      </select>
-      <div *ngIf="formulaire.get('priorite')?.invalid && formulaire.get('priorite')?.touched">
-        Veuillez sélectionner une priorité.
+      <label for="createdDate">createdDate</label>
+      <input id="createdDate" type="date" formControlName="createdDate" matNativeControl>
+      <div *ngIf="formulaire.get('createdDate')?.invalid && formulaire.get('createdDate')?.touched">
+        Veuillez choisir une date de creation.
       </div>
     </div>
+  </div>
+  <div>
+    <label for="updateDate">updateDate</label>
+    <input id="updateDate" type="date" formControlName="updateDate" matNativeControl>
+    <div *ngIf="formulaire.get('updateDate')?.invalid && formulaire.get('updateDate')?.touched">
+      Veuillez choisir une date de la modification.
     </div>
-  
-    <div>
-      <label for="reponse">Réponse</label>
-      <textarea id="reponse" formControlName="reponse" matNativeControl></textarea>
-      <div *ngIf="formulaire.get('reponse')?.invalid && formulaire.get('reponse')?.touched">
-        Veuillez entrer une réponse (minimum 5 caractères).
-      </div>
+  </div>
+  <div>
+    <label for="completionDate">completionDate</label>
+    <input id="completionDate" type="date" formControlName="completionDate" matNativeControl>
+    <div *ngIf="formulaire.get('completionDate')?.invalid && formulaire.get('completionDate')?.touched">
+      Veuillez choisir une date de completion.
     </div>
-  
-    <button type="submit" [disabled]="formulaire.invalid">Soumettre</button>
-  </form>
+  </div>
+<div>
+  <label for="assignedEmployees">assigné à:</label>
+<select name="assignedEmployees" id="assignedEmployees" multiple>
+  <option value="">-- Aucun assigné --</option>
+      <option *ngFor="let option of clientOptions" [value]="option">{{ option }}</option>
+  <!--<option *ngFor="let employee of employees" [value]="employee.id">{{ employee.firstName }} {{ employee.lastName }}</option>-->
+</select>
+  <div *ngIf="formulaire.get('assignedEmployees')?.invalid && formulaire.get('assignedEmployees')?.touched">
+    Veuillez entrer une réponse (minimum un employee).
+  </div>
+</div>
+
+  <button type="submit" [disabled]="formulaire.invalid">Soumettre</button>
+</form>
