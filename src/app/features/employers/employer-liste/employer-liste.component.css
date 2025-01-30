@@ -41,3 +41,12 @@
     color: red;
     margin: 2px;
 }
+
+
+.p-datatable-frozen-tbody {
+  font-weight: bold;
+}
+
+.p-datatable-scrollable .p-frozen-column {
+  font-weight: bold;
+}

@@ -1,17 +1,15 @@
 <!-- //////////////////////////////////::DIALOG:///////////////////// -->
 
-<div class="card">
-    <p-dialog [modal]="true" [(visible)]="visible" [position]="position" [style]="{ width: '70rem', height: '50rem' }">
+    <p-dialog [modal]="true" [(visible)]="visible" [position]="position" [style]="{ width: '50rem', padding: '0', height: '35rem' }">
         <!-- <p-dialog [header]="header" [modal]="true" [(visible)]="visible" [position]="position" [style]="{ width: '50rem', height: '500px' }"> -->
         <app-ajouter *ngIf="ajouterDialog"></app-ajouter>
         <app-modifier *ngIf="modifierDialog"></app-modifier>
     </p-dialog>
-</div>
 
 <!-- //////////////////////////////////::NAVBAR:///////////////////// -->
 <!-- tickets.component.html -->
     
-<div class="navbar col-md-12">
+<div class="navbar col-md-12 navbR" >
     <!-- Bouton Ajouter un ticket -->
     <button mat-raised-button color="primary" (click)="showAjouterDialog('center')" label="right" styleClass="min-w-40">
         <mat-icon>add</mat-icon>
@@ -78,42 +76,49 @@
         #dt1
         [value]="customers"
         dataKey="id"
-        [rows]="10"
-        [rowsPerPageOptions]="[10, 25, 50]"
+        [rows]="5"
+        [rowsPerPageOptions]="[5, 10, 25, 50]"
         [loading]="loading"
         [paginator]="true"
         [globalFilterFields]="['name', 'country.name', 'representative.name', 'status']"
+        size="small"
+        showGridlines
         >
         <ng-template pTemplate="caption" #caption>
-            <div class="flex">
+            <div class="d-flex flex-column justify-content-center align-items-end">
               <!-- <p-button label="Clear" [outlined]="true" icon="pi pi-filter-slash" (click)="clear(dt1)" /> -->
-              <p-button label="Clear" class="p-button-outlined" icon="pi pi-filter-slash" (click)="clear(dt1)" />
-              <div class="p-inputgroup ml-auto">
-                <span class="p-inputgroup-addon">
-                  <i class="pi pi-search"></i>
-                </span>
-                <input pInputText type="text" (input)="dt1.filterGlobal($event, 'contains')" placeholder="Search keyword" />
+              <p-button class="mb-3" label="Clear" size="small" icon="pi pi-filter-slash" (click)="clear(dt1)"/>
+              <div class="p-inputgroup searchInput text-lg-end">
+                  <span class="p-inputgroup-addon">
+                      <i class="pi pi-search"></i>
+                    </span>
+                    <input  pInputText type="text" (input)="dt1.filterGlobal($event, 'contains')" placeholder="Search keyword" />
               </div>
             </div>
           </ng-template>
           
-        <ng-template pTemplate="header" #header>
-            <tr>
-                <th style="min-width:15rem">
+        <ng-template  pTemplate="header" #header>
+            <tr id="tableHeader">
+                <th style="min-width:5rem">
                     <div class="flex items-center">
-                        Name
+                        Id
+                        
+
                         <p-columnFilter type="text" field="name" display="menu" />
                     </div>
                 </th>
-                <th style="min-width:15rem">
+                <th style="min-width:15rem;">
                     <div class="flex items-center">
-                        Country
+                        Description
+                        
+
                         <p-columnFilter type="text" field="country.name" display="menu" />
                     </div>
                 </th>
                 <th style="min-width:15rem">
                     <div class="flex items-center">
-                        Agent
+                        priority
+                        
                         <!-- <p-columnFilter field="representative" matchMode="in" display="menu" [showMatchModes]="false" [showOperator]="false" [showAddButton]="false">
                             <ng-template pTemplate="header" #header>
                                 <div class="px-4 pt-4 pb-0">
@@ -135,16 +140,43 @@
                 </th>
                 <th style="min-width:10rem">
                     <div class="flex items-center">
-                        Date
+                        Created date
+                        
                         <p-columnFilter type="date" field="date" display="menu" />
                     </div>
                 </th>
                 <th style="min-width:10rem">
                     <div class="flex items-center">
+                        Up-Date
+                        
+                        <p-columnFilter type="date" field="date" display="menu" />
+                    </div>
+                </th>
+                <th style="min-width:10rem">
+                    <div class="flex items-center">
+                        Completion date
+                        
+                        <p-columnFilter type="date" field="date" display="menu" />
+                    </div>
+                </th>
+                <th style="min-width:10rem">
+                    <div class="flex items-center">
+                        Initiator
+                        
+                    </div>
+                </th>
+                <th style="min-width:10rem">
+                    <div class="flex items-center">
+                        assigned To
+                    </div>
+                </th>
+                <!-- <th style="min-width:10rem">
+                    <div class="flex items-center">
                         Balance
                         <p-columnFilter type="numeric" field="balance" display="menu" currency="USD" />
                     </div>
-                </th>
+                </th> -->
+                
                 <th style="min-width:10rem">
                     <div class="flex items-center">
                         Status
@@ -159,20 +191,7 @@
                         </p-columnFilter> -->
                     </div>
                 </th>
-                <th style="min-width:10rem">
-                    <div class="flex items-center">
-                        Activity
-                        <!-- <p-columnFilter field="activity" matchMode="between" display="menu" [showMatchModes]="false" [showOperator]="false" [showAddButton]="false">
-                            <ng-template #filter let-filter="filterCallback">
-                                <p-slider [(ngModel)]="activityValues" [range]="true" (onSlideEnd)="filter($event)" styleClass="m-4" />
-                                <div class="flex items-center px-2">
-                                    <span>{{ activityValues[0] }}</span>
-                                    <span>{{ activityValues[1] }}</span>
-                                </div>
-                            </ng-template>
-                        </p-columnFilter> -->
-                    </div>
-                </th>
+                
                 <th style="width: 3rem">
                     <div class="flex items-center">
                         Verified

@@ -71,42 +71,167 @@
 </div>
 
 
-
 <!-- ////////////////////////////////////////////////////////////////::::TABLE::://////////////////////////////////////// -->
-<h1></h1>
-    <div class="employer-list">
-      <!-- Bouton Ajouter un employé -->
-        <!-- <button mat-raised-button color="primary">
-        <mat-icon>add</mat-icon>
-        Ajouter un employé
-        </button> -->
-        <!-- Liste des employés -->
-        <table>
-            <thead>
-                <tr>
-                    <th>id</th>
-                    <th>Nom</th>
-                    <th>Prenom</th>
-                    <th>Telephone</th>
-                    <th>Email</th>
-                    <th>Rôle</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody *ngFor="let employe of employerList">
-                <!-- Contenu des lignes -->
-                <td>{{employe.id}}</td>
-                <td>{{employe.lastName}}</td>
-                <td>{{employe.firstName}}</td>
-                <td>{{employe.phone}}</td>
-                <td>{{employe.email}}</td>
-                <td>{{employe.role}}</td>
-                <td>
-                <div>
-                    <button (click)="showModifierDialog('right')" id="actionButton1"><mat-icon>create</mat-icon></button>
-                    <button id="actionButton2"><mat-icon>delete_forever</mat-icon></button>
+
+    <!-- //////////////////////////////MODAL AJOUTER EMPLOYÉ:////////////////////////////// -->
+    <!-- employer-list.component.html -->
+
+    <div class="card">
+        <div class="font-semibold text-xl mb-4">Liste des employés</div>
+        <p-table
+            #dt1
+            [value]="employerList"
+            dataKey="id"
+            [rows]="10"
+            [loading]="loading"
+            [rowHover]="true"
+            showGridlines
+            [paginator]="true"
+            [globalFilterFields]="['customer._id','customer.lastName', 'customer.firstName', 'role']"
+            responsiveLayout="scroll"
+        >
+            
+            <ng-template pTemplate="caption" #caption>
+                <div class="flex justify-between items-end flex-column sm:flex-row">
+                    <button pButton label="Clear" class="p-button-outlined mb-2" icon="pi pi-filter-slash" (click)="clear(dt1)"></button>
+                    <div class="p-inputgroup">
+                        <span class="p-inputgroup-addon">
+                            <i class="pi pi-search"></i>
+                        </span>
+                        <input pInputText type="text" (input)="onGlobalFilter(dt1, $event)" placeholder="Search keyword" />
+                    </div>
                 </div>
-                </td>
-            </tbody>
-        </table>
+            </ng-template>
+            <ng-template pTemplate="header" #header>
+                <tr>
+                    <th style="min-width: 12rem">
+                        <div class="flex justify-between items-center">
+                            Id
+                            <p-columnFilter type="text" field="name" display="menu" placeholder="Search by name"></p-columnFilter>
+                        </div>
+                    </th>
+                    
+                    
+                    <th style="min-width: 14rem">
+                        <div class="flex justify-between items-center">
+                            Nom
+                            <p-columnFilter field="representative" matchMode="in" display="menu" [showMatchModes]="false" [showOperator]="false" [showAddButton]="false">
+                                <!-- <ng-template  #header>
+                                    <div class="px-3 pt-3 pb-0">
+                                        <span class="font-bold">Agent Picker</span>
+                                    </div>
+                                </ng-template> -->
+                                <!-- <ng-template #filter let-value let-filter="filterCallback">
+                                    <p-multiselect [ngModel]="value" [options]="representatives" placeholder="Any" (onChange)="filter($event)" optionLabel="name" styleClass="w-full">
+                                        <ng-template let-option #item>
+                                            <div class="flex items-center gap-2 w-44">
+                                                <img [alt]="option.label" src="https://primefaces.org/cdn/primeng/images/demo/avatar/{{ option.image }}" width="32" />
+                                                <span>{{ option.name }}</span>
+                                            </div>
+                                        </ng-template>
+                                    </p-multiselect>
+                                </ng-template> -->
+                            </p-columnFilter>
+                        </div>
+                    </th>
+                    <th style="min-width: 12rem">
+                        <div class="flex justify-between items-center">
+                            Prenom
+                            <p-columnFilter type="text" field="country.name" display="menu" placeholder="Search by country"></p-columnFilter>
+                        </div>
+                    </th>
+                    <th style="min-width: 10rem">
+                        <div class="flex justify-between items-center">
+                            Email
+                            <!-- <p-columnFilter type="numeric" field="balance" display="menu" currency="USD"></p-columnFilter> -->
+                        </div>
+                    </th>
+                    <th style="min-width: 10rem">
+                        <div class="flex justify-between items-center">
+                            Tel
+                            <!-- <p-columnFilter type="numeric" field="balance" display="menu" currency="USD"></p-columnFilter> -->
+                        </div>
+                    </th>
+                    <th style="min-width: 12rem">
+                        <div class="flex justify-between items-center">
+                            Rôle
+                            <!-- <p-columnFilter field="status" matchMode="equals" display="menu">
+                                <ng-template #filter let-value let-filter="filterCallback">
+                                    <p-select [ngModel]="value" [options]="statuses" (onChange)="filter($event.value)" placeholder="Any" [style]="{ 'min-width': '12rem' }">
+                                        <ng-template let-option #item>
+                                            <span [class]="'customer-badge status-' + option.value">{{ option.label }}</span>
+                                        </ng-template>
+                                    </p-select>
+                                </ng-template>
+                            </p-columnFilter> -->
+                        </div>
+                    </th>
+                    
+                    <th style="min-width: 8rem">
+                        <div class="flex justify-between items-center">
+                            Actions
+                        </div>
+                    </th>
+                    <!-- <th style="min-width: 8rem">
+                        <div class="flex justify-between items-center">
+                            Verified
+                            <p-columnFilter type="boolean" field="verified" display="menu"></p-columnFilter>
+                        </div>
+                    </th> -->
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" #body let-customer>
+                <tr>
+                    <td>
+                        {{ customer._id }}
+                    </td>
+                    <td>
+                        <div class="flex items-center gap-2">
+                            <!-- <img src="https://primefaces.org/cdn/primeng/images/demo/flag/flag_placeholder.png" [class]="'flag flag-' + customer.country.code" width="30" /> -->
+                            <span>{{ customer.firstName }}</span>
+                            <!-- <span>{{ customer.country.name }}</span> -->
+                        </div>
+                    </td>
+                    <td>
+                        <div class="flex items-center gap-2">
+                            <span>{{ customer.lastName }}</span>
+                            <!-- <span>{{ customer.country.name }}</span> -->
+                        </div>
+                    </td>
+                    <td>
+                        <div class="flex items-center gap-2">
+                            <!-- <img [alt]="customer.representative.name" src="https://primefaces.org/cdn/primeng/images/demo/avatar/{{ customer.representative.image }}" width="32" style="vertical-align: middle" /> -->
+                            <!-- <span class="image-text">{{ customer.representative.name }}</span> -->
+                            <span class="image-text">{{ customer.email }}</span>
+                        </div>
+                    </td>
+                    
+                    <td>
+                        {{ customer.phone}}
+                    </td>
+                    <!-- <td>
+                        <p-tag [value]="customer.status.toLowerCase()" [severity]="getSeverity(customer.status.toLowerCase())" styleClass="dark:!bg-surface-900" />
+                    </td> -->
+                    
+                    <td class="text-center">
+                        <!-- {{ customer.role}} -->
+                        <p-tag [value]="customer.role.toLowerCase()" [severity]="getSeverity(customer.role.toLowerCase())" styleClass="dark:!bg-surface-900" />
+                    </td>
+                    <td class="d-flex flex-row text-center ">
+                        <button pButton icon="pi pi-pencil" ></button>
+                        <button pButton icon="pi pi-trash" severity="danger" ></button>
+                    </td>
+                </tr>
+            </ng-template>
+            <ng-template #emptymessage>
+                <tr>
+                    <td colspan="8">No customers found.</td>
+                </tr>
+            </ng-template>
+            <ng-template #loadingbody>
+                <tr>
+                    <td colspan="8">Loading customers data. Please wait.</td>
+                </tr>
+            </ng-template>
+        </p-table>
     </div>

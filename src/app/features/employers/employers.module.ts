@@ -7,6 +7,7 @@ import { ModifierEmployerComponent } from './modifier-employer/modifier-employer
 import { AjouterEmployerComponent } from './ajouter-employer/ajouter-employer.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { DialogModule } from 'primeng/dialog';
+import { CustomerService } from 'src/app/shared/services/customer.service';
 
 
 @NgModule({

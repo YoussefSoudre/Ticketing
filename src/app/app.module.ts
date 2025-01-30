@@ -8,10 +8,12 @@ import { SharedModule } from './shared/shared.module';
 import { LayoutModule } from './features/layout/layout.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
+// import { PageNotFoundComponent } from './src/app/features/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    // PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
