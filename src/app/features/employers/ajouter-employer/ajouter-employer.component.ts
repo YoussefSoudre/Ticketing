@@ -39,6 +39,7 @@ export class AjouterEmployerComponent {
   private generateId(): string {
     return Math.random().toString(36).substring(2, 15); // Génère un identifiant unique
   }
- 
 
 }
+
+ 

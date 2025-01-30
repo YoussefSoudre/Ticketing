@@ -11,13 +11,13 @@ import { TaskServiceService } from 'src/app/shared/services/clientDasboardServic
 })
 export class AjouterTaskComponent {
    form: FormGroup;
-  constructor(private fb: FormBuilder, private taskservice: TaskServiceService ) {
+  constructor(private fb: FormBuilder, private taskService: TaskServiceService ) {
       this.form = this.fb.group({
         id: ['', Validators.required],
         description: ['', Validators.required],
         status: ['TO_DO', Validators.required],
-        assignedTo: [null],
-        comments: this.fb.array([], Validators.required),
+        assignedTo: ['', Validators.required],
+        comments: [this.fb.array([], Validators.required),],
         deadline: [''],
         creationDate: [new Date(), Validators.required],
         completionDate: [''],
@@ -31,13 +31,13 @@ export class AjouterTaskComponent {
       if (this.form.valid) {
         const { value: newTask } = this.form;
         console.log('task:', newTask);
-        this.taskservice.addTask(newTask);
+        this.taskService.addTask(newTask);
         this.form.reset();
         console.log('Task added successfully');
       } else {
         console.log('Form is invalid');
       }
     }
-  
+ 
 
 }

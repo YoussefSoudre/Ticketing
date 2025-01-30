@@ -6,7 +6,7 @@ const Client = mongoose.model("Client", ClientSchema);
 
 export const addNewClient= async (req, res) => {
   try {
-    let addNewClient = new Employee(req.body);
+    let addNewClient = new Client(req.body);
     let client = await addNewClient.save();
     res.status(200).json({client});
 

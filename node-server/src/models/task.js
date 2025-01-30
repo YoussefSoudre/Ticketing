@@ -2,10 +2,10 @@ import mongoose from "mongoose";
 import mongooseSequence from "mongoose-sequence";
 const Schema = mongoose.Schema;
 const AutoIncrement = mongooseSequence(mongoose);
-export const TicketSchema = new Schema({
+export const TaskSchema = new Schema({
   id: {
     type: String,
-    unique: true
+  
   },
   description: {
     type: String,

@@ -8,7 +8,7 @@ import { Client } from 'src/app/shared/models/globaleModel';
 export class ClientServiceService {
 
 
-  url ='http://localhost:3000/employee';
+  url ='http://localhost:3000/client';
   constructor(private http: HttpClient) { }
   getclient() {
     return this.http.get(this.url);
@@ -17,6 +17,7 @@ export class ClientServiceService {
   addClient(value: Client): void {
     let val = value;
     let body = {
+      id: value.id, 
       name: value.name,
       adresse: value.adresse,
       phone: value.phone,

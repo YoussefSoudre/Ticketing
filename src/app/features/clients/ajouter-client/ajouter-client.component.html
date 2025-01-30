@@ -2,16 +2,16 @@
   <h2>Ajouter clients</h2>
   <form [formGroup]="clientForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
-      <label for="firstName">Nom</label>
-      <input id="Nom" formControlName="Nom" type="text" class="form-control" placeholder="Nom" />
-      <div *ngIf="clientForm.get('Nom')?.invalid && clientForm.get('Nom')?.touched" class="error">
+      <label for="name">name</label>
+      <input id="name" formControlName="name" type="text" class="form-control" placeholder="name" />
+      <div *ngIf="clientForm.get('name')?.invalid && clientForm.get('name')?.touched" class="error">
         Le Nom est requis et doit contenir au moins 3 caractères.
       </div>
     </div>
     <div class="form-group">
       <label for="adresse">Adresse</label>
-      <input id="adresse" formControlName="adresse" type="text" class="form-control" placeholder="Emplacement de la societe" />
-      <div *ngIf="clientForm.get('email')?.invalid && clientForm.get('email')?.touched" class="error">
+      <input id="adresse" formControlName="adresse" type="text" class="form-control" placeholder="Emplacement " />
+      <div *ngIf="clientForm.get('adresse')?.invalid && clientForm.get('adresse')?.touched" class="error">
     Emplacement de la societe est requis.
       </div>
     </div>
@@ -34,8 +34,8 @@
    
 
     <div class="form-group">
-      <label for="statut">Status</label>
-      <select id="statut" formControlName="statut" class="form-control">
+      <label for="status">Status</label>
+      <select id="status" formControlName="status" class="form-control">
         <option value="Active">Active</option>
         <option value="Inactive">Inactive</option>
       </select>
@@ -47,7 +47,6 @@
           <option value="Prenium">Prenium</option>
         </select>
       </div>
-
-    <button type="submit" [disabled]="clientForm.invalid" class="btn btn-primary">Ajouter</button>
+    <button type="submit" >Ajouter</button>
   </form>
 </div>

@@ -11,7 +11,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   declarations: [
-    LoginComponent,
+  LoginComponent,
     SignupComponent
   ],
   imports: [
@@ -24,7 +24,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
   exports: [
     CommonModule,
     AuthentificationRoutingModule,
-    LoginComponent,
+   LoginComponent,
     SignupComponent
   ]
 })
