@@ -55,13 +55,8 @@ export class TicketListComponent implements OnInit{
               private ticketService: TicketService) { }
 
   ngOnInit(): void {
-      this.getTicketsListe();
 
-      this.ticketService.getCustomersLarge().then((customers) => {
-        this.customers = customers;
-        this.loading = false;
-
-        this.customers.forEach((customer) => (customer.date = new Date(<Date>customer.date)));
+    this.ticketService.getticket().subscribe(data => {
     });
 
     this.representatives = [
@@ -142,9 +137,7 @@ export class TicketListComponent implements OnInit{
   }
 
   getTicketsListe() { //recuperation de la liste des tickets
-    this.ticketsList = this.ticketService.getTicketsListe();
-    
-    console.log('la liste des tickets: ', this.ticketsList);
+
 }
 
 

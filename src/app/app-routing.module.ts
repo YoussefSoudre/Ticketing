@@ -23,6 +23,8 @@ const routes: Routes = [
         { path: "employers", loadChildren: () => import('./features/employers/employers.module').then(m => m.EmployersModule) },
         { path: "clients", loadChildren: () => import('./features/clients/clients.module').then(m => m.ClientsModule) },
         { path: "achats", loadChildren: () => import('./features/achats/achats.module').then(m => m.AchatsModule) },
+        {path:"tasks", loadChildren: () => import('./features/task/task.module').then(m => m.TaskModule) },
+        {path:"messagerie",loadChildren:()=>import('./features/messagerie/messagerie.module').then(m=> m.MessagerieModule)},
         { path: "dashboard", loadChildren: () => import('./features/dashboard/dashboard.module').then(m => m.DashboardModule) },
 
 

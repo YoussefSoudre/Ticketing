@@ -28,9 +28,9 @@ export class AjouterEmployerComponent {
     if (this.employeeForm.valid) {
       const { value: newEmployee } = this.employeeForm;
       console.log('Employee Created:', newEmployee);
+    
       this.employeeService.addEmployee(newEmployee);
-
-      // Vous pouvez ensuite envoyer `newEmployee` à votre backend ou l'ajouter à une liste locale.
+      this.employeeForm.reset();
     } else {
       console.log('Form Invalid');
     }
@@ -39,5 +39,6 @@ export class AjouterEmployerComponent {
   private generateId(): string {
     return Math.random().toString(36).substring(2, 15); // Génère un identifiant unique
   }
+ 
 
 }
