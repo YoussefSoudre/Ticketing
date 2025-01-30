@@ -25,6 +25,7 @@ const routes: Routes = [
         { path: "achats", loadChildren: () => import('./features/achats/achats.module').then(m => m.AchatsModule) },
         {path:"tasks", loadChildren: () => import('./features/task/task.module').then(m => m.TaskModule) },
         {path:"messagerie",loadChildren:()=>import('./features/messagerie/messagerie.module').then(m=> m.MessagerieModule)},
+        { path: "dashboard", loadChildren: () => import('./features/dashboard/dashboard.module').then(m => m.DashboardModule) },
 
 
 

@@ -8,10 +8,13 @@ import { Employee } from 'src/app/shared/models/globaleModel';
 export class EmployeeService {
   url='http://localhost:3000/employee';
   constructor(private http: HttpClient) { }
+
+  // Récupère tous les employés depuis le serveur
   getemployee() {
     return this.http.get(this.url);
   }
 
+  // Ajoute un employé à la liste
   addEmployee(value: Employee): void {
     let val = value;
     let body = {
@@ -31,7 +34,8 @@ export class EmployeeService {
   }
   
   getEmployees() {
-  
+    return this.http.get(this.url);
+ 
   }
 
 }
