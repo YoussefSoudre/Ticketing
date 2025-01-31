@@ -24,6 +24,7 @@ export class ClientServiceService {
       phone: value.phone,
       status: value.status,
       subscriptionPlan: value.subscriptionPlan,
+      password: value.password,
       employees: []
 
 
