@@ -1,3 +1,13 @@
+.container {
+  max-width: 900px;
+  /* margin: 50px auto; */
+  padding: 20px;
+  background-color: #f9f9f9; /* Couleur de fond douce */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre douce */
+  font-family: Arial, sans-serif;
+}
+
 form{
   width: 100%;
   display: flex;
@@ -33,7 +43,7 @@ h2 {
 }
 
 .form-group {
-  margin: 15px;
+  /* margin: 15px; */
 }
 
 label {
