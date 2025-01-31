@@ -1,36 +1,38 @@
 import mongoose from "mongoose";
 import mongooseSequence from "mongoose-sequence";
+
 const Schema = mongoose.Schema;
 const AutoIncrement = mongooseSequence(mongoose);
+
 export const TaskSchema = new Schema({
   id: {
     type: String,
-  
   },
   description: {
     type: String,
-    required: "Entrer une description"
+    required: [true, "Entrer une description"], 
   },
   status: {
-    type: String
+    type: String,
   },
   assignedTo: {
-    type: String
+    type: String,
   },
   comments: {
-    type: Date
+    type: String, 
   },
   deadline: {
-    type: Date
+    type: Date,
   },
   creationDate: {
     type: Date,
-    default: Date.now
+    default: Date.now,
   },
   completionDate: {
-    type: Date
+    type: Date,
   },
   lastUpdated: {
-    type: Date
-  }
+    type: Date,
+    default: Date.now, // ✅ Ajout d'une valeur par défaut
+  },
 });

@@ -10,7 +10,7 @@ import { getEmployee, addNewEmployee } from "../controllers/employeeController";
 import { getTicket, addNewTicket } from "../controllers/ticketController";
 import { getTask, addNewTask } from "../controllers/taskController";
 import { getClient, addNewClient } from "../controllers/clientController";
-import{getLogin, addNewLogin, deleteLogin} from "../controllers/login.js";
+import{getLogin, addNewLogin, deleteLogin, connectUser} from "../controllers/login.js";
 
 const routes = (app) => {
   app
@@ -36,16 +36,16 @@ const routes = (app) => {
     // delete request
     .delete(deleteTache);
 
-      app
-        .route("/login")
-        .get((req, res, next) => {
+      app.route("/login")
+      /*  .get((req, res, next) => {
           // middleware
           console.log(`Request from: ${req.originalUrl}`);
           console.log(`Request type: ${req.method}`);
           next();
         }, getLogin)
-
-        .post(addNewLogin);
+*/
+        .post(connectUser);
+        
         
     // delete request
   

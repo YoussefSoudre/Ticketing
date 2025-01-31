@@ -25,6 +25,7 @@ export class SignupComponent {
         id: new FormControl(this.generateId(), Validators.required),
         name: new FormControl('', [Validators.required, Validators.minLength(3)]),
         email: new FormControl('', [Validators.required, Validators.email]),
+       adresse: new FormControl('', [Validators.required,Validators.minLength(6)]),
         phone: new FormControl('', [Validators.required, Validators.minLength(8)]),
         status: new FormControl('', [Validators.required,]),
         subscriptionPlan: new FormControl('', [Validators.required,]),

@@ -2,6 +2,7 @@ import mongoose from "mongoose";
 import { ClientSchema } from "../models/clientModel";
 
 
+
 const Client = mongoose.model("Client", ClientSchema);
 
 export const addNewClient= async (req, res) => {
@@ -22,38 +23,67 @@ export const addNewClient= async (req, res) => {
 
 export const getClient = async (req, res) => {
   try {
-    let client = await Client.find({});
-    res.json(client);
+    const clients = await Client.find({});
+    res.status(200).json(clients);
   } catch (err) {
-    res.send(err);
+    res
+      .status(500)
+      .json({
+        message: "Erreur lors de la récupération des clients",
+        error: err.message,
+      });
   }
 };
 
 export const getClientWithID = async (req, res) => {
   try {
-    let client = await client.findById(req.params.clientId);
-    res.json(client);
+    const client = await Client.findById(req.params.clientId);
+    if (!client) {
+      return res.status(404).json({ message: "Client non trouvé" });
+    }
+    res.status(200).json(client);
   } catch (err) {
-    res.send(err);
+    res
+      .status(500)
+      .json({
+        message: "Erreur lors de la récupération du client",
+        error: err.message,
+      });
   }
 };
-export const updatclient= async (req, res) => {
+export const updateClient = async (req, res) => {
   try {
-    let client = await client.findOneAndUpdate(
-      { _id: req.params.clientId },
+    const client = await Client.findByIdAndUpdate(
+      req.params.clientId,
       req.body,
-      { new: true }
+      { new: true, runValidators: true }
     );
-    res.json(client);
+    if (!client) {
+      return res.status(404).json({ message: "Client non trouvé" });
+    }
+    res.status(200).json({ message: "Client mis à jour avec succès", client });
   } catch (err) {
-    res.send(err);
+    res
+      .status(500)
+      .json({
+        message: "Erreur lors de la mise à jour du client",
+        error: err.message,
+      });
   }
 };
 export const deleteClient = async (req, res) => {
   try {
-    await Employee.remove({ _id: req.params.clientId });
-    res.json({ message: "Successfully deleted client" });
+    const result = await Client.deleteOne({ _id: req.params.clientId });
+    if (result.deletedCount === 0) {
+      return res.status(404).json({ message: "Client non trouvé" });
+    }
+    res.status(200).json({ message: "Client supprimé avec succès" });
   } catch (err) {
-    res.send(err);
+    res
+      .status(500)
+      .json({
+        message: "Erreur lors de la suppression du client",
+        error: err.message,
+      });
   }
 };

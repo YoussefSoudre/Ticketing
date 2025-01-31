@@ -72,3 +72,8 @@ div *ngIf {
   border: none !important;
   
 }
+.error {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+}

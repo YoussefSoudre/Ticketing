@@ -11,6 +11,9 @@ export const ClientSchema = new Schema({
     type: String,
     required: "Entrer un nom",
   },
+  email: {
+    type: String,
+  },
   adresse: {
     type: String,
   },
@@ -26,7 +29,6 @@ export const ClientSchema = new Schema({
   },
   password: {
     type: String,
-    
   },
   //employee: { type: Array, default: [] },
 });

@@ -19,6 +19,7 @@ export class ClientServiceService {
     let body = {
       id: value.id, 
       name: value.name,
+      email: value.email,
       adresse: value.adresse,
       phone: value.phone,
       status: value.status,

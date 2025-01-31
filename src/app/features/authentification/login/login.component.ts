@@ -30,6 +30,24 @@ export class LoginComponent {
     console.log('login page onClick value: ', loggedInOnClick);
     this.router.navigate(['/auth/ticket'])
   }
+  onSubmit() {
+    if (this.formule.valid) {
+      const { value: newclient } = this.formule;
+      console.log('Client Created:', newclient);
+
+      this.loginService.addLogin(newclient);
+
+      // Forcer la réinitialisation après un court délai
+      setTimeout(() => {
+        this.formule.reset();
+      }, 0);
+    } else {
+      console.log('Form Invalid');
+    }
+  }
+  private generateId(): string {
+    return Math.random().toString(36).substring(2, 15); // Génère un identifiant unique
+  }
 
 
 }

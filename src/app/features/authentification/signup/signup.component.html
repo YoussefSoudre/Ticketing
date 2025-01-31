@@ -21,6 +21,15 @@
         </div>
 
         <div class="form-group">
+            <label for="adresse">Adresse </label>
+            <input id="adresse" type="adresse" formControlName="adresse" class="form-control" placeholder="Votre adresse e-mail" />
+            <div *ngIf="formulaire.get('adresse')?.invalid && formulaire.get('adresse')?.touched">
+                <small>L'adresse e-mail est requise.</small>
+                <small *ngIf="formulaire.get('adresse')?.errors?.['adresse']">L'adresse e-mail n'est pas valide.</small>
+            </div>
+        </div>
+
+        <div class="form-group">
             <label for="phone">Téléphone</label>
             <input id="phone" type="text" formControlName="phone" class="form-control"
                 placeholder="Votre numéro de téléphone" />
