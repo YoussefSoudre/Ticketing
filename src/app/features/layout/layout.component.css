@@ -10,7 +10,7 @@ mat-drawer-container{
 #sidenav{
     background-color: #4758B8;
     width: 12%;
-    padding-top: 5px;
+    padding-top: 20px;
 }
 .sidenavtopbottom {
     width: 99%;
@@ -37,14 +37,7 @@ mat-list-item :hover {
     margin: 10px;
 }
 
-/* mat-list-item>button :hover {
-    background-color: rgb(95, 137, 236);
-} */
-
 mat-drawer-content{
-    /* display: flex; */
-    /* justify-content: center; */
-    /* margin: 10px; */
-    padding:10px;
+    padding:40px;
 
 }

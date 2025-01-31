@@ -8,7 +8,6 @@ import { FooterComponent } from './footer/footer.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { HeaderComponent } from './header/header.component';
-import { TicketModule } from '../ticket/ticket.module';
 import { AuthentificationModule } from '../authentification/authentification.module';
 import { ConnectedHeaderComponent } from './connected-header/connected-header.component';
 
@@ -27,7 +26,6 @@ import { ConnectedHeaderComponent } from './connected-header/connected-header.co
     CommonModule,
     LayoutRoutingModule,
     SharedModule,
-    TicketModule,
     AuthentificationModule
   ],
   exports: [

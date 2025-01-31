@@ -18,10 +18,13 @@ export class AjouterComponent {
       titre: ['', [Validators.required, Validators.minLength(3)]],
       description: ['', [Validators.required, Validators.minLength(5)]],
       priority: ['', Validators.required],
+      initiator: ['', Validators.required],
       status: ['', Validators.required],
       createdDate: ['', Validators.required],
       updateDate: ['', Validators.required],
       completionDate: ['', Validators.required],
+      // assignedEmployees: ['', Validators.required],
+      // tasks: ['', Validators.required],
 
     });
   }
@@ -41,10 +44,11 @@ export class AjouterComponent {
   }
 
   // Exemple de données pour les sélections dans le formulaire
-  statutOptions = ['En cours', 'Terminé', 'En attente'];
+  statutOptions = ['En cours', 'Termine', 'En attente'];
   priorityOptions = ['Basse', 'Moyenne', 'Haute'];
   clientOptions = ['employer A', 'employer B', 'employer C'];
   // employeeOption creation
+  initiatorOptions = ['employer A', 'employer B', 'employer C'];
 
 
   private generateId(): string {

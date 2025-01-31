@@ -5,6 +5,15 @@
     padding: 8px 16px;
   }
   
+  .container {
+    max-width: 100%;
+    /* margin: 50px auto; */
+    padding: 20px;
+    background-color: #f9f9f9; /* Couleur de fond douce */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre douce */
+    font-family: Arial, sans-serif;
+  }
 
 h2 {
     font-size: 24px;
@@ -16,7 +25,7 @@ h2 {
 
 /* Styles pour le formulaire */
 form {
-    max-width: 80%;
+    max-width: 950%;
     margin: 0 auto;
     display: flex;
     flex-direction: column;

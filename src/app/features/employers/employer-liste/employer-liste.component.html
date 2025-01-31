@@ -1,5 +1,5 @@
 <div class="card">
-    <p-dialog [modal]="true" [(visible)]="visible" [position]="position" [style]="{ width: '40rem', height: '30rem' }">
+    <p-dialog [modal]="true" [(visible)]="visible" [position]="position" [style]="{ width: '50rem', padding: '0', height: '35rem' }">
         <!-- <p-dialog [header]="header" [modal]="true" [(visible)]="visible" [position]="position" [style]="{ width: '50rem', height: '500px' }"> -->
         <app-ajouter-employer *ngIf="ajouterDialog"></app-ajouter-employer>
         <app-modifier-employer *ngIf="modifierDialog"></app-modifier-employer>
@@ -9,85 +9,86 @@
 <!-- //////////////////////////////////::NAVBAR:///////////////////// -->
 <!-- tickets.component.html -->
     
-<div class="navbar col-md-12">
-    <!-- Bouton Ajouter un ticket -->
-    <button mat-raised-button color="primary" (click)="showAjouterDialog('center')" label="center" styleClass="min-w-40">
-        <mat-icon>add</mat-icon>
-        Ajouter un employé
-    </button>
-
-    <!-- Sélecteur de dates -->
-    <button mat-stroked-button [matMenuTriggerFor]="dateMenu">
-        <mat-icon>calendar_today</mat-icon>
-        date min. - date max.
-        <mat-icon>arrow_drop_down</mat-icon>
-    </button>
-
-    <mat-menu #dateMenu="matMenu">
-
-    </mat-menu>
-
-    <!-- Filtres -->
-    <button mat-stroked-button [matMenuTriggerFor]="filterMenu">
-        <mat-icon>filter_list</mat-icon>
-        Filtres
-        <mat-icon>arrow_drop_down</mat-icon>
-    </button>
-    <mat-menu #filterMenu="matMenu">
-        <!-- Contenu du menu des filtres -->
-    </mat-menu>
-
-    <!-- Spacer -->
-    <span class="spacer"></span>
-
-    <!-- Boutons à gauche -->
-    <div class="left-items">
-        <button mat-icon-button>
-            <mat-icon>bookmark</mat-icon>
-        </button>
-
-        <button mat-stroked-button>
-            <mat-icon>download</mat-icon>
-            Export
-        </button>
-
-        <button mat-icon-button>
-            <mat-icon>print</mat-icon>
-        </button>
-
-        <button mat-stroked-button [matMenuTriggerFor]="displayMenu">
-            <mat-icon>arrow_drop_down</mat-icon>
-            <mat-icon>table_chart</mat-icon>
-            Options d'affichage
-        </button>
-        <mat-menu #displayMenu="matMenu">
-            <!-- Options d'affichage -->
-        </mat-menu>
-
-        <button mat-icon-button>
-            <mat-icon>help</mat-icon>
-        </button>
-    </div>
-</div>
 
 
 <!-- ////////////////////////////////////////////////////////////////::::TABLE::://////////////////////////////////////// -->
 
-    <!-- //////////////////////////////MODAL AJOUTER EMPLOYÉ:////////////////////////////// -->
-    <!-- employer-list.component.html -->
+<!-- //////////////////////////////MODAL AJOUTER EMPLOYÉ:////////////////////////////// -->
+<!-- employer-list.component.html -->
 
-    <div class="card">
-        <div class="font-semibold text-xl mb-4 col-12 text-center p-1">Liste des employés</div>
+<div class="card">
+    <div class="font-semibold text-xl mt-4 col-12 text-start p-1">Liste des employés</div>
+        <div class="navbar col-md-12">
+            <!-- Bouton Ajouter un ticket -->
+            <button mat-raised-button color="primary" (click)="showAjouterDialog('center')" label="center" styleClass="min-w-40">
+                <mat-icon>add</mat-icon>
+                Ajouter un employé
+            </button>
+        
+            <!-- Sélecteur de dates -->
+            <button mat-stroked-button [matMenuTriggerFor]="dateMenu">
+                <mat-icon>calendar_today</mat-icon>
+                date min. - date max.
+                <mat-icon>arrow_drop_down</mat-icon>
+            </button>
+        
+            <mat-menu #dateMenu="matMenu">
+        
+            </mat-menu>
+        
+            <!-- Filtres -->
+            <button mat-stroked-button [matMenuTriggerFor]="filterMenu">
+                <mat-icon>filter_list</mat-icon>
+                Filtres
+                <mat-icon>arrow_drop_down</mat-icon>
+            </button>
+            <mat-menu #filterMenu="matMenu">
+                <!-- Contenu du menu des filtres -->
+            </mat-menu>
+        
+            <!-- Spacer -->
+            <span class="spacer"></span>
+        
+            <!-- Boutons à gauche -->
+            <div class="left-items">
+                <button mat-icon-button>
+                    <mat-icon>bookmark</mat-icon>
+                </button>
+        
+                <button mat-stroked-button>
+                    <mat-icon>download</mat-icon>
+                    Export
+                </button>
+        
+                <button mat-icon-button>
+                    <mat-icon>print</mat-icon>
+                </button>
+        
+                <button mat-stroked-button [matMenuTriggerFor]="displayMenu">
+                    <mat-icon>arrow_drop_down</mat-icon>
+                    <mat-icon>table_chart</mat-icon>
+                    Options d'affichage
+                </button>
+                <mat-menu #displayMenu="matMenu">
+                    <!-- Options d'affichage -->
+                </mat-menu>
+        
+                <button mat-icon-button>
+                    <mat-icon>help</mat-icon>
+                </button>
+            </div>
+        </div>
         <p-table
             #dt1
             [value]="employerList"
             dataKey="id"
             [rows]="3"
+            [rowsPerPageOptions]="[5, 10, 25, 50]"
             [loading]="loading"
             [rowHover]="true"
             showGridlines
             [paginator]="true"
-            [globalFilterFields]="['customer._id','customer.lastName', 'customer.firstName', 'role']"
+            [globalFilterFields]="['employe.id','employe.lastName', 'employe.firstName', 'role']"
             responsiveLayout="scroll"
         >
             
@@ -104,7 +105,7 @@
             </ng-template>
             <ng-template pTemplate="header" #header>
                 <tr>
-                    <th style="min-width: 12rem">
+                    <th style="min-width: 3rem">
                         <div class="flex justify-between items-center">
                             Id
                             <p-columnFilter type="text" field="name" display="menu" placeholder="Search by name"></p-columnFilter>
@@ -143,7 +144,6 @@
                     <th style="min-width: 10rem">
                         <div class="flex justify-between items-center">
                             Email
-                            <!-- <p-columnFilter type="numeric" field="balance" display="menu" currency="USD"></p-columnFilter> -->
                         </div>
                     </th>
                     <th style="min-width: 10rem">
@@ -180,21 +180,21 @@
                     </th> -->
                 </tr>
             </ng-template>
-            <ng-template pTemplate="body" #body let-customer>
+            <ng-template pTemplate="body" #body let-employe>
                 <tr>
                     <td>
-                        {{ customer._id }}
+                        {{ employe.id }}
                     </td>
                     <td>
                         <div class="flex items-center gap-2">
-                            <!-- <img src="https://primefaces.org/cdn/primeng/images/demo/flag/flag_placeholder.png" [class]="'flag flag-' + customer.country.code" width="30" /> -->
-                            <span>{{ customer.firstName }}</span>
+                            <!-- <img src="https://primefaces.org/cdn/primeng/images/demo/flag/flag_placeholder.png" [class]="'flag flag-' + employe.country.code" width="30" /> -->
+                            <span>{{ employe.firstName }}</span>
                             <!-- <span>{{ customer.country.name }}</span> -->
                         </div>
                     </td>
                     <td>
                         <div class="flex items-center gap-2">
-                            <span>{{ customer.lastName }}</span>
+                            <span>{{ employe.lastName }}</span>
                             <!-- <span>{{ customer.country.name }}</span> -->
                         </div>
                     </td>
@@ -202,12 +202,12 @@
                         <div class="flex items-center gap-2">
                             <!-- <img [alt]="customer.representative.name" src="https://primefaces.org/cdn/primeng/images/demo/avatar/{{ customer.representative.image }}" width="32" style="vertical-align: middle" /> -->
                             <!-- <span class="image-text">{{ customer.representative.name }}</span> -->
-                            <span class="image-text">{{ customer.email }}</span>
+                            <span class="image-text">{{ employe.email }}</span>
                         </div>
                     </td>
                     
                     <td>
-                        {{ customer.phone}}
+                        {{ employe.phone}}
                     </td>
                     <!-- <td>
                         <p-tag [value]="customer.status.toLowerCase()" [severity]="getSeverity(customer.status.toLowerCase())" styleClass="dark:!bg-surface-900" />
@@ -215,11 +215,11 @@
                     
                     <td class="text-center">
                         <!-- {{ customer.role}} -->
-                        <p-tag [value]="customer.role.toLowerCase()" [severity]="getSeverity(customer.role.toLowerCase())" styleClass="dark:!bg-surface-900" />
+                        <p-tag [value]="employe.role.toLowerCase()" [severity]="getSeverity(employe.role.toLowerCase())" styleClass="dark:!bg-surface-900" />
                     </td>
                     <td class="d-flex flex-row text-center ">
-                        <button pButton icon="pi pi-pencil" ></button>
-                        <button pButton icon="pi pi-trash" severity="danger" ></button>
+                        <button (click)="showModifierDialog('right')" pButton size="small" class="p-button-outlined mb-1"  icon="pi pi-pencil" style="width: 40px;"></button>
+                        <button pButton size="small" class="p-button-outlined mb-1"  icon="pi pi-trash" severity="danger" style="width: 40px;"></button>
                     </td>
                 </tr>
             </ng-template>

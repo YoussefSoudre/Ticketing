@@ -10960,7 +10960,8 @@ app-header {
     padding-bottom: 6rem;
     text-align: center;
     color: #fff;
-    background-image: url("/assets/bootstrap-homePage/assets/img/header-bg.png");
+    /* background-image: url("/assets/bootstrap-homePage/assets/img/header-bg.png"); */
+    background-image: url("/assets/bootstrap-homePage/assets/img/cover.jpg");
     background-repeat: no-repeat;
     background-attachment: scroll;
     background-position: center center;

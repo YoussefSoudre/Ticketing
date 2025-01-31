@@ -1,5 +1,5 @@
-import { TicketService } from 'src/app/shared/services/clientDasboardServices/ticketService/ticket.service';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { TicketService } from 'src/app/shared/services/clientDasboardServices/ticketService/ticket.service';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { Table, TableModule } from 'primeng/table';
 import { ProductService, Product } from 'src/app/shared/services/product.service';
@@ -11,15 +11,14 @@ interface expandedRows {
   [key: string]: boolean;
 }
 
-
 @Component({
-  selector: 'app-ticket-list',
-  templateUrl: './ticket-list.component.html',
-  styleUrls: ['./ticket-list.component.css'],
+  selector: 'app-task-list',
+  templateUrl: './task-list.component.html',
+  styleUrls: ['./task-list.component.css'],
   providers: [ConfirmationService, MessageService, CustomerService, ProductService]
 })
-export class TicketListComponent implements OnInit{
-   ajouterDialog: boolean= false;
+export class TaskListComponent implements OnInit {
+ajouterDialog: boolean= false;
     modifierDialog: boolean=false;
   
     ajouterDialogVisible: boolean = false;
@@ -237,7 +236,4 @@ export class TicketListComponent implements OnInit{
   
         return total;
     }
-  
-
-
 }

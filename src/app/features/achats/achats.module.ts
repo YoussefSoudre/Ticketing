@@ -7,7 +7,6 @@ import { MessagerieComponent } from './messagerie/messagerie.component';
 import { PointagesComponent } from './pointages/pointages.component';
 import { SatistiqueComponent } from './satistique/satistique.component';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { EmployersModule } from '../employers/employers.module';
 
 
 
@@ -23,7 +22,6 @@ import { EmployersModule } from '../employers/employers.module';
     CommonModule,
     AchatsRoutingModule,
     SharedModule,
-    EmployersModule
   ]
 })
 export class AchatsModule { }

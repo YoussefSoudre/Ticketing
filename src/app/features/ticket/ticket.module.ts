@@ -13,13 +13,12 @@ import { DynamicDialogModule } from 'primeng/dynamicdialog';
 import { DialogService } from 'primeng/dynamicdialog';
 
 import { TagModule } from 'primeng/tag';
-// import { IconFieldModule } from 'primeng/iconfield';
-// import { InputIconModule } from 'primeng/inputicon';
 import { HttpClientModule } from '@angular/common/http';
 import { MultiSelectModule } from 'primeng/multiselect';
-// import { SelectModule } from 'primeng/select';
-import { TableModule } from 'primeng/table';
+import { Table, TableModule } from 'primeng/table';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
+
+
 
 @NgModule({
   declarations: [
@@ -28,19 +27,18 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/cor
     ModifierComponent
   ],
   imports: [
+    
     CommonModule,
     TicketRoutingModule,
     SharedModule,
+    
     CardModule,
     ButtonModule,
     InputTextModule,
     DialogModule,
     DynamicDialogModule,
-    // IconFieldModule,
-    // InputIconModule,
     HttpClientModule,
     MultiSelectModule,
-    // SelectModule,
     TableModule,
     TagModule,
   ],

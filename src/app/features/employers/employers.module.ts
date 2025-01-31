@@ -8,13 +8,15 @@ import { AjouterEmployerComponent } from './ajouter-employer/ajouter-employer.co
 import { SharedModule } from 'src/app/shared/shared.module';
 import { DialogModule } from 'primeng/dialog';
 import { CustomerService } from 'src/app/shared/services/customer.service';
+import { DetailEmployeComponent } from './detail-employe/detail-employe.component';
 
 
 @NgModule({
   declarations: [
     EmployerListeComponent,
     ModifierEmployerComponent,
-    AjouterEmployerComponent
+    AjouterEmployerComponent,
+    DetailEmployeComponent
   ],
   imports: [
     CommonModule,

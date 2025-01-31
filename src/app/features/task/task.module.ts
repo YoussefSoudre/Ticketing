@@ -5,13 +5,16 @@ import { DetaileTaskComponent } from './detaile-task/detaile-task.component';
 import { AjouterTaskComponent } from './ajouter-task/ajouter-task.component';
 import { ModifierTaskComponent } from './modifier-task/modifier-task.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { TaskListComponent } from './task-list/task-list.component';
+
 
 
 @NgModule({
   declarations: [
     DetaileTaskComponent,
     AjouterTaskComponent,
-    ModifierTaskComponent
+    ModifierTaskComponent,
+    TaskListComponent
   ],
   imports: [
     CommonModule,

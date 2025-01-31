@@ -6,7 +6,6 @@ import { HomeComponent } from './home.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { AuthentificationModule } from '../authentification/authentification.module';
 import { LayoutModule } from '../layout/layout.module';
-import { TicketModule } from '../ticket/ticket.module';
 import { DialogModule } from 'primeng/dialog';
 
 
@@ -21,7 +20,6 @@ import { DialogModule } from 'primeng/dialog';
     SharedModule,
     AuthentificationModule,
     LayoutModule,
-    TicketModule,
     DialogModule
   ]
 })

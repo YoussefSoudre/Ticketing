@@ -25,16 +25,26 @@ import { MultiSelectModule } from 'primeng/multiselect';
 import { TableModule } from 'primeng/table';
 import { DropdownModule } from 'primeng/dropdown'
 import { PrimeIcons } from 'primeng/api';
-
-
-// // Angular Core
-
-// // PrimeNG Modules
-// import { IconFieldModule } from 'primeng/iconfield';
+import { MessageService } from 'primeng/api';
+import { SpeedDialModule } from 'primeng/speeddial';
+import { ToastModule } from 'primeng/toast';
+import { MenuModule } from 'primeng/menu';
 import { SliderModule } from 'primeng/slider';
 import { ProgressBarModule } from 'primeng/progressbar';
-// import { ColumnFilterModule } from 'primeng/columnfilter'; // Si nécessaire
+import { ToggleButtonModule } from 'primeng/togglebutton';
+import { RatingModule } from 'primeng/rating';
+import { RippleModule } from 'primeng/ripple';
+
+// // PrimeNG Modules
 import { PaginatorModule } from 'primeng/paginator';
+import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
+
+import { DialogModule } from 'primeng/dialog';
+import { PanelModule } from 'primeng/panel';
+import { MegaMenuModule } from 'primeng/megamenu';
+import { ChartModule } from 'primeng/chart';
+
+
 
 
 
@@ -43,6 +53,19 @@ import { PaginatorModule } from 'primeng/paginator';
 @NgModule({
   declarations: [],
   imports: [
+    ChartModule,
+    MegaMenuModule,
+    PanelModule,
+    DialogModule,
+    RippleModule,
+    RatingModule,
+    FormsModule,
+    ToggleButtonModule,
+    ProgressBarModule,
+    SliderModule,
+    MenuModule,
+    SpeedDialModule,
+    ToastModule,
     PaginatorModule,
     ProgressBarModule,
     SliderModule,
@@ -67,16 +90,29 @@ import { PaginatorModule } from 'primeng/paginator';
     MatTabsModule,
     ReactiveFormsModule,
     MatDialogModule,
-    // BrowserAnimationsModule
     CarouselModule,
     GalleriaModule,
     ButtonModule,
 
   ],
   exports: [
-    PaginatorModule,
+    ChartModule,
+    MegaMenuModule,
+    PanelModule,
+    DialogModule,
+    RippleModule,
+    RatingModule,
+    FormsModule,
+    ToggleButtonModule,
     ProgressBarModule,
     SliderModule,
+    MenuModule,
+    SpeedDialModule,
+    ToastModule,
+    PaginatorModule,
+    ProgressBarModule,
+    PaginatorModule,
+    ProgressBarModule,
     DropdownModule,
     TableModule,
     MultiSelectModule,
@@ -110,7 +146,11 @@ import { PaginatorModule } from 'primeng/paginator';
     ButtonModule
 
 
-  ]
+  ],
+  providers: [MessageService, PrimeIcons
+
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class SharedModule {
 
