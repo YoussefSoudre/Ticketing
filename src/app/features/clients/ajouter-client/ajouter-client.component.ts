@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ClientServiceService } from 'src/app/shared/services/clientDasboardServices/clientService/client-service.service';
 
 @Component({
   selector: 'app-ajouter-client',
@@ -10,23 +11,29 @@ export class AjouterClientComponent {
   clientForm: FormGroup;
 
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder,private clientService: ClientServiceService ) {
     this.clientForm = this.fb.group({
       id: [this.generateId(), Validators.required],
-      firstName: ['', [Validators.required, Validators.minLength(3)]],
-    adresse: ['', [Validators.required, Validators.minLength(6)]],
+     name: ['', [Validators.required, Validators.minLength(3)]],
+      email: ['', [Validators.required, Validators.email]],
+      adresse: ['', [Validators.required, Validators.minLength(6)]],
       phone: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],
-      satuts: ['', [Validators.required, Validators.email]],
+      status: ['', [Validators.required,]],
       subscriptionPlan: ['', Validators.required],
+      employee: { type: Array, default: [] } 
+
+    
     });
   }
   ngOnInit(): void { }
 
   onSubmit() {
     if (this.clientForm.valid) {
-      const { value: newEmployee } = this.clientForm.value;
-      console.log('Employee Created:', newEmployee);
-  
+      const { value: newClient} = this.clientForm;
+      console.log('client Created:', newClient);
+
+      this.clientService.addClient(newClient);
+      this.clientForm.reset();
     } else {
       console.log('Form Invalid');
     }

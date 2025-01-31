@@ -3,10 +3,10 @@
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
 
         <div>
-            <label for="id">ID de la tâche</label>
+            <label for="id">ID</label>
             <input id="id" formControlName="id" type="text" />
             <div *ngIf="form.get('id')?.touched && form.get('id')?.invalid">
-                L'ID est requis.
+               Id est requis.
             </div>
         </div>
 
@@ -31,7 +31,7 @@
             <label for="assignedTo">Affecté à</label>
             <select id="assignedTo" formControlName="assignedTo">
                 <option value="">-- Aucune affectation --</option>
-                <option></option>
+                <option>paul</option>
             </select>
         </div>
 

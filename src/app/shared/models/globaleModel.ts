@@ -1,12 +1,14 @@
 
 export interface Client {
     id: string;
-    name: string;
+    name?: string;
+    email:string;
     adresse?: string;
     phone: string;
     status: 'ACTIVE' | 'INACTIVE'; // Statut du client
-    subscriptionPlan: string; // Exemple : "Basic", "Premium", etc.
-    employees: Employee[];
+    subscriptionPlan: string;// Exemple : "Basic", "Premium", et.
+    password: string; // mot de passe pour le client 
+ //employees: Employee[];
 }
 
 
@@ -52,6 +54,11 @@ export interface Notification {
     ticketId: string; // Référence au ticket concerné
     recipient: string; // Email ou téléphone du destinataire
     sentDate: Date;
+}
+
+export interface longin{
+    email: string;
+    password: string;
 }
 
 

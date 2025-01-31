@@ -1,32 +1,35 @@
 import mongoose from "mongoose";
 import mongooseSequence from "mongoose-sequence";
 const Schema = mongoose.Schema;
-const AutoIncrement = mongooseSequence(mongoose);
+
 export const ClientSchema = new Schema({
   id: {
-    type: Number,
-    unique: true
+    type: String,
+    unique: true,
   },
   name: {
     type: String,
-    required: "Entrer un nom"
+    required: "Entrer un nom",
+  },
+  email: {
+    type: String,
   },
   adresse: {
-    type: String
+    type: String,
   },
   phone: {
-    type: String
+    type: String,
   },
   status: {
-    type: String
+    type: String,
   },
   subscriptionPlan: {
     type: String,
-    required: "Subscription plan is required"
+    required: "Subscription plan is required",
   },
-  employee: {
-    type: String
-   
-  }
+  password: {
+    type: String,
+  },
+  //employee: { type: Array, default: [] },
 });
-TicketSchema.plugin(AutoIncrement, { inc_field: "id" });
+

@@ -3,55 +3,90 @@
     <form [formGroup]="formulaire" (ngSubmit)="onSubmit()">
         <div class="form-group">
             <label for="name">Nom</label>
-            <input id="name" type="text" formControlName="name" placeholder="Votre nom complet" required />
+            <input id="name" type="text" formControlName="name" class="form-control" placeholder="Votre nom complet"
+                required />
             <div *ngIf="formulaire.get('name')?.invalid && formulaire.get('name')?.touched">
                 <small>Le nom est requis.</small>
             </div>
         </div>
-        
-        <div class="d-flex justify-content-between col-md-12">
-            <div class="form-group col-md-5">
-                <label for="email">Adresse e-mail</label>
-                <input id="email" type="email" formControlName="email" placeholder="Votre adresse e-mail" />
-                <div *ngIf="formulaire.get('email')?.invalid && formulaire.get('email')?.touched">
-                    <small>L'adresse e-mail est requise.</small>
-                    <small *ngIf="formulaire.get('email')?.errors?.['email']">L'adresse e-mail n'est pas valide.</small>
-                </div>
-            </div>
-            <div class="form-group col-md-5">
-                <label for="email">phone</label>
-                <input id="phone" type="phone" formControlName="phone" placeholder="phone" />
-                <div *ngIf="formulaire.get('phone')?.invalid && formulaire.get('phone')?.touched">
-                    <small>phone incorrect</small>
-                    <small *ngIf="formulaire.get('phone')?.errors?.['phone']">Le numero de telephone n'est pas valide.</small>
-                </div>
+
+        <div class="form-group">
+            <label for="email">Adresse e-mail</label>
+            <input id="email" type="email" formControlName="email" class="form-control"
+                placeholder="Votre adresse e-mail" />
+            <div *ngIf="formulaire.get('email')?.invalid && formulaire.get('email')?.touched">
+                <small>L'adresse e-mail est requise.</small>
+                <small *ngIf="formulaire.get('email')?.errors?.['email']">L'adresse e-mail n'est pas valide.</small>
             </div>
         </div>
 
-        <div class="d-flex justify-content-between col-md-12 ">
-            <div class="form-group col-md-5">
-                <label for="password">Mot de passe</label>
-                <input id="password" type="password" formControlName="password" placeholder="Votre mot de passe" minlength="6" />
-                <div *ngIf="formulaire.get('password')?.invalid && formulaire.get('password')?.touched">
-                    <small>Le mot de passe est requis </small>
-                <small *ngIf="formulaire.get('password')?.errors?.['minlength']">Le mot de passe doit comporter au
-                    moins 6 caractères.</small>
-                </div>
+        <div class="form-group">
+            <label for="adresse">Adresse </label>
+            <input id="adresse" type="adresse" formControlName="adresse" class="form-control" placeholder="Votre adresse e-mail" />
+            <div *ngIf="formulaire.get('adresse')?.invalid && formulaire.get('adresse')?.touched">
+                <small>L'adresse e-mail est requise.</small>
+                <small *ngIf="formulaire.get('adresse')?.errors?.['adresse']">L'adresse e-mail n'est pas valide.</small>
             </div>
-    
-            <div class="form-group col-md-5 ">
-                <label for="confirmPassword">Confirmer le mot de passe</label>
-                <input id="confirmPassword" type="password" formControlName="confirmPassword"
-                    placeholder="Confirmez votre mot de passe" />
-                <div
-                    *ngIf="formulaire.get('confirmPassword')?.invalid && formulaire.get('confirmPassword')?.touched">
-                    <small>La confirmation du mot de passe est requise.</small>
-                    <small *ngIf="formulaire.hasError('mismatch', 'confirmPassword')">Les mots de passe ne
-                        correspondent pas.</small>
-                </div>
-            </div> 
         </div>
 
-        <button type="submit">S'inscrire</button>
+        <div class="form-group">
+            <label for="phone">Téléphone</label>
+            <input id="phone" type="text" formControlName="phone" class="form-control"
+                placeholder="Votre numéro de téléphone" />
+            <div *ngIf="formulaire.get('phone')?.invalid && formulaire.get('phone')?.touched">
+                <small>Le numéro de téléphone est requis.</small>
+                <small *ngIf="formulaire.get('phone')?.errors?.['minlength']">Le numéro de téléphone doit contenir au
+                    moins 8 chiffres.</small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="status">Statut</label>
+            <select id="status" formControlName="status" class="form-control">
+                <option value="">Sélectionnez un statut</option>
+                <option value="Active">Actif</option>
+                <option value="Inactive">Inactif</option>
+            </select>
+            <div *ngIf="formulaire.get('status')?.invalid && formulaire.get('status')?.touched">
+                <small>Le statut est requis.</small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="subscriptionPlan">Plan d'abonnement</label>
+            <select id="subscriptionPlan" formControlName="subscriptionPlan" class="form-control">
+                <option value="">Sélectionnez un plan</option>
+                <option value="Basic">Basique</option>
+                <option value="Premium">Premium</option>
+            </select>
+            <div *ngIf="formulaire.get('subscriptionPlan')?.invalid && formulaire.get('subscriptionPlan')?.touched">
+                <small>Le plan d'abonnement est requis.</small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="password">Mot de passe</label>
+            <input id="password" type="password" formControlName="password" class="form-control"
+                placeholder="Votre mot de passe" minlength="8" />
+            <div *ngIf="formulaire.get('password')?.invalid && formulaire.get('password')?.touched">
+                <small>Le mot de passe est requis.</small>
+                <small *ngIf="formulaire.get('password')?.errors?.['minlength']">Le mot de passe doit comporter au moins
+                    8 caractères.</small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="confirmPassword">Confirmer le mot de passe</label>
+            <input id="confirmPassword" type="password" formControlName="confirmPassword" class="form-control"
+                placeholder="Confirmez votre mot de passe" />
+            <div *ngIf="formulaire.get('confirmPassword')?.invalid && formulaire.get('confirmPassword')?.touched">
+                <small>La confirmation du mot de passe est requise.</small>
+            </div>
+            <div *ngIf="formulaire.hasError('mismatch') && formulaire.get('confirmPassword')?.touched">
+                <small>Les mots de passe ne correspondent pas.</small>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary" [disabled]="formulaire.invalid">S'inscrire</button>
     </form>
 </div>
